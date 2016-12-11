@@ -1,3 +1,12 @@
-RewriteEngine on
-RewriteCond %{REQUEST_URI} !/holding.html$
-RewriteRule $ /holding.html [R=302,L] 
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /andrewchart.co.uk-2017/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /andrewchart.co.uk-2017/index.php [L]
+</IfModule>
+
+# END WordPress

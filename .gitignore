@@ -1,3 +1,23 @@
 notes.txt
 
 wp-config.php
+
+wp-admin/
+wp-includes/
+
+!*/wp-*.php
+/wp-*.php
+
+!*/xmlrpc.php
+/xmlrpc.php
+
+!*/readme.html
+/readme.html
+
+!*/license.txt
+/license.txt
+
+!*/index.php
+/index.php
+
+twentyseventeen/

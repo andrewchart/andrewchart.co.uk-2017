@@ -1,0 +1,163 @@
+/*
+Theme Name: AndrewChart.co.uk 2017
+Theme URI: https://www.andrewchart.co.uk
+Author: Andrew Chart
+Author URI: https://www.andrewchart.co.uk
+Description: Andrew Chart's personal site Wordpress theme.
+Version: 1.0
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-size: 16px;
+  font-family: 'Slabo 27px', 'Georgia', serif;
+  min-width: 300px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1em;
+}
+
+h1, h3, h5 {
+  font-family: 'Oswald', 'Helvetica', 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+}
+
+a { text-decoration: none; }
+button { font-family: 'Slabo 27px', 'Georgia', serif; }
+
+
+
+/* HEADERS */
+.site-header {
+  background-color: #ff2f00;
+  position: relative;
+  color: #fff;
+}
+
+.site-header__slim {
+  border-bottom: 3px solid #111;
+  height: 58px;
+}
+
+.site-header__home {
+  text-align: center;
+}
+
+.site-header__home .headline-text {
+  font-size: 3em;
+  line-height: 120%;
+  margin-bottom: 0.3em;
+}
+
+.site-header__home .summary-text {
+  padding: 0 2em 1em;
+
+}
+
+
+.logo {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 400;
+    font-family: 'Oswald', 'Helvetica', 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+    background-image: url(img/a/320.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: -55px 4px;
+}
+
+
+.logo a {
+  color: #fff;
+  display: block;
+  padding: 0.5em 0;
+}
+
+.site-header__slim .menu-button-area {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.site-header__home .menu-button-area {
+  text-align: right;
+}
+
+.site-header .menu-button {
+  font-size: 1em;
+  margin: 0.85em 0.8em;
+  padding: 0.4em;
+  background-color: transparent;
+  color: #eee;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+
+/* NAV */
+.main-nav {
+  background-color: #fff;
+  position: fixed;
+  top: 61px;
+  left: 0;
+  height: 100%;
+  width: 87%;
+  max-width: 400px;
+  transform: translateX(-102%);
+  transition: transform 0.33s cubic-bezier(0,0,0.3,1);
+  box-shadow: 1px 0 7px rgba(0,0,0,0.2);
+}
+
+.site-header__home .main-nav {
+  top: 0;
+  text-align: left;
+}
+
+.main-nav.open {
+  transform: translateX(0);
+}
+
+.main-nav .dismiss {
+  text-align: right;
+}
+
+.main-nav .dismiss .close-icon {
+  background: none;
+  border: 0;
+  padding: 0.6em;
+  color: #aaa;
+}
+
+.main-nav .dismiss .close-icon:active {
+  color: #c00;
+}
+
+.main-nav > ul {
+  border-top: 1px solid #ddd;
+}
+
+.main-nav > ul > li {
+  border-bottom: 1px solid #ddd;
+}
+
+.main-nav > ul > li > a {
+  color: #333;
+  padding: 0.9em;
+  display: block;
+}
+
+.main-nav > ul > li > a:active {
+  background-color: #eee;
+}
+
+.main-nav > ul > li > ul.children {
+  display: none;
+}
