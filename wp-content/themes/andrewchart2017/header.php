@@ -23,7 +23,7 @@
 	</head>
 	<body>
 
-    <?php if(!is_home()): ?>
+    <?php if(!is_front_page()): ?>
     <header class="site-header site-header__slim">
 
       <div class="logo">
@@ -39,4 +39,25 @@
 
 
     </header>
+
+    <?php else: ?>
+
+    <div class="above-fold__home">
+      <header class="site-header site-header__home">
+
+        <div class="menu-button-area">
+          <button class="button menu-button">Menu</button>
+        </div>
+
+        <?php the_content(); ?>
+
+        <div class="logo"></div>
+
+        <?php include_once('nav.php'); ?>
+
+      </header>
+
+      <div class="see-more"><button class="material-icons scroll-down">expand_more</button></div>
+    </div>
+
     <?php endif; ?>
