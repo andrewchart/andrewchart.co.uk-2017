@@ -1,7 +1,12 @@
+<?php
+  /* Template Name: Homepage */
+
+?>
+
 <?php get_header(); ?>
 
 
-<section class="homepage-content">
+<section class="main-content homepage-content">
 
   <p>Hi, I'm Andrew.</p>
   <p>I'm based in Surrey, South East England, and I
@@ -16,7 +21,7 @@
       <li>Shout me on <a href="https://www.linkedin.com/in/andrew-chart-b89a9153">LinkedIn</a></li>
     </ul>
   </nav>
-  
+
 </section>
 
 
