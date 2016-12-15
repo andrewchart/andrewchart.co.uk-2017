@@ -39,7 +39,6 @@ function accouk_contact_form_handler() {
       include_once('forms/contact-form.php');
     } else {
       echo "<p class='success'>Thank you! Speak soon.</p>";
-      print_r($_POST);
     }
 
     return;
@@ -54,19 +53,22 @@ function accouk_contact_form_handler() {
 
 /* 2) Check Recaptcha Response */
 function reCaptchaOk($response) {
-  //test
-  if(empty($response)) {
-    return false;
-  } else {
-    return true;
-  }
 
   //cURL api
+  $ch = curl_init();
+  curl_setopt($ch,CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch,CURLOPT_POST, 2);
+  curl_setopt($ch,CURLOPT_POSTFIELDS, "secret=6Lcd5Q4UAAAAADhwp5umjPCmnFg7RUxhnXCIUO53&response=$response");
 
-  //Process response
+  $result = json_decode(curl_exec($ch));
 
-  //It's ok
-  return false;
+  if($result && $result->success) {
+    return $result->success;
+  } else {
+    return false;
+  }
+
 }
 
 
