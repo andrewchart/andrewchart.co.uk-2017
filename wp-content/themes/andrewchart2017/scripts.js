@@ -57,4 +57,41 @@ $(document).ready(function(){
 
   });
 
+
+  /* Add transparency to desktop menu dropdowns on pages with hero graphics */
+  if($('.post-hero-header').length > 0)
+    $('.main-nav').addClass('overlays-hero');
+
+
+  /* Post Reading Progress Bar */
+  if($('progress.post-progress').length === 1) {
+
+    //Update the progress bar (run on document ready)
+    (window.updatePostProgressValue = function() {
+      $('progress.post-progress').attr("value",document.body.scrollTop);
+    })();
+
+    //Set the max
+    var scrollableHeight = document.body.scrollHeight - $('body').outerHeight();
+    $('progress.post-progress').attr("max",scrollableHeight);
+
+    //Attach the scroll handler (only execute on idle if possible)
+    if('requestIdleCallback' in window) {
+
+      var scrollFunc = function(){
+        requestIdleCallback(updatePostProgressValue);
+      }
+
+    } else {
+
+      var scrollFunc = function(){
+        updatePostProgressValue();
+      }
+
+    }
+
+    $(window).on('scroll', scrollFunc);
+
+  }
+
 });

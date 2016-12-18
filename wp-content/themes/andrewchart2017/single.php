@@ -5,8 +5,6 @@
 
 <?php get_header(); ?>
 
-<section class="main-content post-content">
-  <?php accouk_display_post_content(); ?>
-</section>
+<?php accouk_display_post_content(); ?>
 
 <?php get_footer(); ?>
