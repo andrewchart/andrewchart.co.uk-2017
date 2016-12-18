@@ -1,7 +1,30 @@
 <?php
 
+/* 1) Display Post Content with correct format template */
+function accouk_display_post_content() {
 
-/* 1) Contact Form -- Render or Handle */
+  $main_post_format = array_values(get_terms('post-format'));
+
+  switch($main_post_format[0]->slug) {
+
+    case 'post-with-hero':
+      include_once('post-with-hero.php');
+      break;
+
+    case 'default':
+      include_once('post-default.php');
+      break;
+
+    default:
+      include_once('post-default.php');
+      break;
+
+  }
+
+}
+
+
+/* 2) Contact Form -- Render or Handle */
 function accouk_contact_form_handler() {
 
 
@@ -29,8 +52,6 @@ function accouk_contact_form_handler() {
     $headers .= "Reply-To: $name <$email>" . "\r\n";
     $headers .= 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-
-
 
     $mailsent = mail($to, $subject, $html, $headers);
 

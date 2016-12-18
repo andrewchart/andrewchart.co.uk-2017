@@ -95,7 +95,6 @@ textarea {
 
 .site-header {
   background-color: #ff2f00;
-  position: relative;
   color: #fff;
 }
 
@@ -129,7 +128,6 @@ textarea {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: -325px 4px;*/
-  background-color: gold;
 
   flex-grow: 10;
 
@@ -156,6 +154,7 @@ textarea {
   bottom: 0;
   text-align: center;
   background-color: #fff;
+  z-index: 1;
 }
 
 .above-fold__home .see-more .scroll-down {
@@ -194,7 +193,6 @@ textarea {
 }
 
 .site-header__slim .menu-button-area {
-  height: 100%;
   position: absolute;
   top: 0;
   right: 0;
@@ -202,34 +200,75 @@ textarea {
 
 /* Footer */
 .site-footer {
-  min-height: 2em;
+  height: 48px;
   background-color: #e4e4e4;
-  margin-top: 5em;
+  margin-top: 62px;
 }
 
 /* NAV */
-.main-nav {
-  background-color: #fff;
-  position: fixed;
+.nav-container {
+  height: 100%;
+  position: absolute;
   top: 61px;
   left: 0;
+  z-index: 5;
+  will-change: transform;
+
+  transform: translateX(-102%);
+
+  transition-property: transform;
+  transition-duration: 0.33s;
+  transition-timing-function: cubic-bezier(0,0,0.3,1);
+}
+
+.nav-container.open {
+  transform: translateX(0);
+  transition-duration: 0.33s;
+  transition-delay: 0.25s;
+  transition-timing-function: cubic-bezier(0,0,0.3,1);
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+.nav-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 61px;
+  left: 0;
+  opacity: 0;
+  background-color: #000;
+  z-index: -1;
+  will-change: opacity;
+
+}
+
+body.nav-open .nav-overlay {
+  z-index: 2;
+  opacity: 0.3;
+
+  transition: opacity 0.3s;
+}
+
+
+.main-nav {
+  background-color: #fff;
+  position: relative;
   height: 100%;
   width: 87%;
   min-width: 278px;
   max-width: 400px;
-  transform: translateX(-102%);
-  transition: transform 0.33s cubic-bezier(0,0,0.3,1);
-  box-shadow: 1px 0 7px rgba(0,0,0,0.2);
+  overflow: scroll;
+
+  box-shadow: 1px 0 7px rgba(0,0,0,0.3);
 }
 
-.site-header__home .main-nav {
+.site-header__home .nav-container,
+.site-header__home .nav-overlay {
   top: 0;
   text-align: left;
-}
-
-.main-nav.open {
-  transform: translateX(0);
-  overflow: scroll;
 }
 
 .main-nav .dismiss {
@@ -253,20 +292,45 @@ textarea {
 
 .main-nav > ul > li {
   border-bottom: 1px solid #ddd;
+  position: relative;
 }
 
-.main-nav > ul > li > a {
-  color: #333;
+.main-nav > ul > li a {
   padding: 0.9em;
   display: block;
 }
 
-.main-nav > ul > li > a:active {
+.main-nav > ul > li > a {
+  color: #333;
+}
+
+.main-nav > ul > li > a:active,
+.main-nav > ul > li > ul.children > li > a:hover {
+  color: #333;
   background-color: #eee;
 }
 
 .main-nav > ul > li > ul.children {
-  display: none;
+  overflow: hidden;
+  max-height: 0;
+  will-change: max-height;
+
+  transition: max-height 0.45s ease-in-out;
+}
+
+.main-nav > ul > li > ul.children > li {
+  border-top: 1px solid #ddd;
+  background-color: #f3f3f3;
+}
+
+.main-nav li.cat-item.open ul.children {
+  transition: max-height 0.45s ease-in-out;
+  max-height: 16em;
+}
+
+.main-nav > ul > li > ul.children > li > a {
+  min-width: 12em;
+  color: #333;
 }
 
 .main-nav .search-form {
@@ -309,6 +373,7 @@ textarea {
   padding: 1em;
   max-width: 830px;
   margin: auto;
+  min-height: calc(100% - 2em - 170px);
 }
 
 .main-content h1 {
@@ -392,15 +457,27 @@ padding-bottom: 1em;
     margin-right: 1em;
   }
 
-  .site-header__slim .main-nav {
-    display: flex;
+  .site-header__slim .nav-overlay {
+    display: none;
+  }
+
+  .site-header__slim .nav-container {
+    width: auto;
     position: static;
     transform: translateX(0);
+  }
+
+
+  .site-header__slim .main-nav {
+    width: auto;
+    position: static;
     background: none;
     box-shadow: none;
-    width: auto;
-    max-width: none;
     margin: 0;
+    max-width: none;
+    overflow: visible;
+
+    display: flex;
   }
 
   .site-header__slim .main-nav .dismiss {
@@ -410,6 +487,7 @@ padding-bottom: 1em;
   .site-header__slim .main-nav ul {
     border: 0;
     height: 100%;
+
     display: flex;
   }
 
@@ -427,8 +505,23 @@ padding-bottom: 1em;
     color: #fff;
   }
 
-  .site-header__slim .main-nav li a:hover {
+  .site-header__slim .main-nav li a:hover,
+  .site-header__slim .main-nav li a:active {
     color: #ffea47;
+    background: transparent;
+  }
+
+  .main-nav li.cat-item ul.children {
+    height: auto;
+    display: none;
+  }
+
+  .main-nav li.cat-item:hover ul.children {
+    display: block;
+    max-height: none;
+    position: absolute;
+    top: 100%;
+    margin-top: 3px;
   }
 
   .site-header__slim .search-form {
