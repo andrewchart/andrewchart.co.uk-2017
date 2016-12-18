@@ -21,8 +21,6 @@ $(document).ready(function(){
   //Contact form submit handler
   $('#contact-form').submit(function(){
 
-    var errors = 0;
-
     var nameErr = $('#contact-form input[name=your_name]').next('.validation-error');
     var emailErr = $('#contact-form input[name=email]').next('.validation-error');
     var msgErr = $('#contact-form textarea[name=message]').next('.validation-error');
@@ -30,22 +28,22 @@ $(document).ready(function(){
     if(this.your_name.value.trim().length === 0) {
       nameErr.slideDown();
     } else {
-      nameErr.slideUp();
+      nameErr.hide();
     }
 
     if(this.email.value.trim().length === 0) {
       emailErr.slideDown();
     } else {
-      emailErr.slideUp();
+      emailErr.hide();
     }
 
     if(this.message.value.trim().length === 0) {
       msgErr.slideDown();
     } else {
-      msgErr.slideUp();
+      msgErr.hide();
     }
 
-    if(errors > 0)
+    if(nameErr.is(':visible') || emailErr.is(':visible') || msgErr.is(':visible'))
       return false;
 
     var response = grecaptcha.getResponse();
