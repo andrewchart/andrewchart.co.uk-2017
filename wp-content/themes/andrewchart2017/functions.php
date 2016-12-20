@@ -1,6 +1,19 @@
 <?php
 
-/* 1) Display Post Content with correct format template */
+/* 1) Post Imagery */
+add_theme_support('post-thumbnails');
+if(function_exists('add_image_size')) {
+  add_image_size('uncropped_xl',3840,9999);
+  add_image_size('uncropped_l',1920,9999);
+  add_image_size('uncropped_m',1280,9999);
+  add_image_size('uncropped_s',640,9999);
+	add_image_size('uncropped_tiny',28,9999);
+
+	//add_image_size('widget-thumbnail-large',310,174,true);
+}
+
+
+/* 2) Display Post Content with correct format template */
 function accouk_display_post_content() {
 
   $main_post_format = array_values(get_terms('post-format'));
@@ -24,7 +37,7 @@ function accouk_display_post_content() {
 }
 
 
-/* 2) Contact Form -- Render or Handle */
+/* 3) Contact Form -- Render or Handle */
 function accouk_contact_form_handler() {
 
 

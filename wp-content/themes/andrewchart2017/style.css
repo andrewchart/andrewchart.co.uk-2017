@@ -447,13 +447,38 @@ body.nav-open .nav-overlay {
   height: calc(100% - 61px);
   margin-bottom: 3em;
   color: #fff;
+  background-color: #999;
   position: relative;
+}
 
-  background-image: url(img/ph/testimg.jpg);
+.post-hero-header .hero-image-container,
+.post-hero-header .hero-image-container > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.post-hero-header .hero-image-container .hero-placeholder-container {
+  will-change: opacity;
+  opacity: 1;
+
+  transition: opacity .3s ease-in-out;
+  -moz-transition: opacity .3s ease-in-out;
+  -webkit-transition: opacity .3s ease-in-out;
+}
+
+.post-hero-header .hero-image-container .hero-placeholder-container.hide {
+  opacity: 0;
+}
+
+
 
 .post-hero-header .vignette {
   position: absolute;
@@ -473,6 +498,27 @@ body.nav-open .nav-overlay {
   padding: 0.4em 0.8em;
   bottom: 40px;
   text-shadow: 0 1px 2px #a5a5a5;
+}
+
+.post-hero-header .post-title-area .post-meta-area {
+  color: #ff2f00;
+  text-shadow: none;
+  line-height: 145%;
+  text-align: right;
+  margin-right: 0.2em;
+  font-weight: bold;
+}
+
+.post-hero-header .post-title-area .post-meta-area .breadcrumb a {
+  color: #ff2f00;
+}
+
+.post-hero-header .post-title-area .post-meta-area .breadcrumb:after {
+  content: ' » ';
+}
+
+.post-hero-header .post-title-area .post-meta-area .breadcrumb:last-of-type:after {
+  content: '';
 }
 
 .post-hero-header .post-title-area h1 {
@@ -717,7 +763,7 @@ padding-bottom: 1em;
   /* Make the nav more transparent */
   .main-nav.overlays-hero > ul > li > a:active,
   .main-nav.overlays-hero > ul > li > ul.children > li > a:hover {
-    background-color: rgba(222,222,222,0.86);
+    background-color: rgba(222,222,222,0.65);
   }
 
   .main-nav.overlays-hero > ul > li > ul.children > li {
@@ -746,22 +792,21 @@ padding-bottom: 1em;
 
 
   /* Post Content */
-  .post-hero-header .post-title-area {
-    width: 60%;
-    clear: both;
+  .post-hero-header .post-title-area .title-column {
+    width: 67%;
     margin-left: 0.7em;
   }
 
-  .post-hero-header .meta-column {
-    width: 40%;
-  }
-
-  .post-hero-header .post-title-area h1 {
+  .post-hero-header .post-title-area .title-column h1 {
     font-size: 4em;
   }
 
   .post-hero-header .post-title-area .excerpt {
     font-size: 1.33em;
+  }
+
+  .post-hero-header .post-title-area .post-meta-area {
+    margin-right: 1em;
   }
 
 

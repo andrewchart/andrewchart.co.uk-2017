@@ -93,3 +93,37 @@ $(document).ready(function(){
   }
 
 });
+
+/* Once the hero image has loaded, hide the blurred placeholder */
+(function() { var heroEls = $('.hero-image-container');
+
+  if(heroEls.length === 0)
+    return;
+
+  function bestImgSize() {
+    var s = screen.width;
+
+    if(s <= 320) return "s";
+    if(s <= 640) return "m";
+    if(s <= 960) return "l";
+    return "xl";
+
+  }
+
+  heroEls.each(function(){
+
+    var suffix = bestImgSize();
+    var imgSrc = $(this).data('hero-image-' + suffix);
+    var heroImg = new Image();
+    window.targetHeroEl = $(this);
+
+    heroImg.onload = function() {
+      targetHeroEl.children('.hero-fullres-container').css("background-image", "url('" + imgSrc + "')");
+      targetHeroEl.children('.hero-placeholder-container').addClass('hide');
+    }
+
+    heroImg.src = imgSrc;
+
+  });
+
+})();
