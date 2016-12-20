@@ -495,9 +495,14 @@ body.nav-open .nav-overlay {
 
 .post-hero-header .post-title-area {
   position: absolute;
-  padding: 0.4em 0.8em;
+  width: 96%;
+  padding: 0.4em 2%;
   bottom: 40px;
   text-shadow: 0 1px 2px #a5a5a5;
+}
+
+.post-hero-header .post-title-area .title-column {
+  margin-left: 0.6em;
 }
 
 .post-hero-header .post-title-area .post-meta-area {
@@ -505,7 +510,7 @@ body.nav-open .nav-overlay {
   text-shadow: none;
   line-height: 145%;
   text-align: right;
-  margin-right: 0.2em;
+  margin-right: 0.6em;
   font-weight: bold;
 }
 
@@ -793,12 +798,13 @@ padding-bottom: 1em;
 
   /* Post Content */
   .post-hero-header .post-title-area .title-column {
-    width: 67%;
-    margin-left: 0.7em;
+
+    margin: 0 32% 0 2%;
   }
 
   .post-hero-header .post-title-area .title-column h1 {
     font-size: 4em;
+    line-height: 1.33em;
   }
 
   .post-hero-header .post-title-area .excerpt {

@@ -21,10 +21,9 @@
       <?php
         $cats = get_the_category();
         foreach($cats as $cat) {
-          echo '<span class="breadcrumb"><a href="' . get_category_link($cat) . '">' . $cat->cat_name . '</a></span> ';
+          echo '&nbsp;<span class="breadcrumb"><a href="' . get_category_link($cat) . '">' . $cat->cat_name . '</a></span>';
         }
-      ?>
-      <br />Published on <?php the_date(); ?>
+      ?><br />Published on <?php the_date(); ?>
     </div>
   </section>
 
