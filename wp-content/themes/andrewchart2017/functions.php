@@ -6,8 +6,11 @@ if(function_exists('add_image_size')) {
   add_image_size('uncropped_xl',3840,9999);
   add_image_size('uncropped_l',1920,9999);
   add_image_size('uncropped_m',1280,9999);
+  add_image_size('sixteennine_m',1280,720,true);
   add_image_size('uncropped_s',640,9999);
-	add_image_size('uncropped_tiny',28,9999);
+  add_image_size('sixteennine_s',640,360, true);
+	add_image_size('uncropped_tiny',32,9999);
+  add_image_size('sixteennine_tiny',32,18,true);
 
 	//add_image_size('widget-thumbnail-large',310,174,true);
 }
@@ -16,9 +19,9 @@ if(function_exists('add_image_size')) {
 /* 2) Display Post Content with correct format template */
 function accouk_display_post_content() {
 
-  $main_post_format = array_values(get_terms('post-format'));
+  $post_formats = get_the_terms(get_the_id(), 'post-format');
 
-  switch($main_post_format[0]->slug) {
+  switch($post_formats[0]->slug) {
 
     case 'post-with-hero':
       include_once('post-with-hero.php');
@@ -36,13 +39,18 @@ function accouk_display_post_content() {
 
 }
 
-/* 3) Don't use the_content in place of the_excerpt */
-add_action( 'init', 'wpse17478_init' );
-function wpse17478_init() {
-  remove_filter( 'get_the_excerpt', 'wp_trim_excerpt' );
+/* 3) Excerpt Length and Ellipsis */
+add_filter( 'excerpt_length', function() { return 23; } );
+add_filter( 'excerpt_more', function() { return "..."; } );
+
+/* 4) Only manual excerpts on post pages */
+function accouk_post_excerpt() {
+  if(has_excerpt()) {
+    the_excerpt();
+  }
 }
 
-/* 4) Contact Form -- Render or Handle */
+/* 5) Contact Form -- Render or Handle */
 function accouk_contact_form_handler() {
 
 

@@ -14,7 +14,7 @@
   <section class="post-title-area">
     <div class="title-column">
       <h1><?php the_title(); ?></h1>
-      <section class="excerpt"><?php the_excerpt(); ?></section>
+      <section class="excerpt"><?php accouk_post_excerpt(); ?></section>
     </div>
 
     <div class="post-meta-area">
@@ -34,7 +34,7 @@
 
 <progress class="post-progress" value="0" max="100"></progress>
 
-<section class="main-content post-content">
+<section class="main-content post-content hero-post-content">
 
   <?php pBr(the_content()); ?>
 

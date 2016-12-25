@@ -8,6 +8,32 @@
 
 <section class="main-content category-content">
   <h1><?php single_cat_title(); ?></h1>
+
+  <?php if ( have_posts() ) echo '<ul class="post-list category-post-list">'; ?>
+  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+    <li>
+      <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+        <div class="main-tile-part">
+          <img src="<?php the_post_thumbnail_url('sixteennine_s'); ?>" />
+          <span><h3><?php the_title(); ?></h3></span>
+        </div>
+        <div class="sub-tile-part">
+          <span class="excerpt"><?php the_excerpt(); ?></span>
+          <span class="date"><?php the_date(); ?></span>
+          <span class="cta">Read Now</span>
+        </div>
+      </a>
+    </li>
+
+
+  <?php endwhile; else : ?>
+  	<p><?php _e( 'Sorry, there are no posts in this category yet.' ); ?></p>
+  <?php endif; ?>
+  <?php if ( have_posts() ) echo '</ul>'; ?>
+
 </section>
+
+
 
 <?php get_footer(); ?>
