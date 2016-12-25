@@ -36,8 +36,13 @@ function accouk_display_post_content() {
 
 }
 
+/* 3) Don't use the_content in place of the_excerpt */
+add_action( 'init', 'wpse17478_init' );
+function wpse17478_init() {
+  remove_filter( 'get_the_excerpt', 'wp_trim_excerpt' );
+}
 
-/* 3) Contact Form -- Render or Handle */
+/* 4) Contact Form -- Render or Handle */
 function accouk_contact_form_handler() {
 
 

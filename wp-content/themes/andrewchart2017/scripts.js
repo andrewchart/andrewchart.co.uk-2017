@@ -18,6 +18,18 @@ $(document).ready(function(){
     }
   });
 
+  //Scrolldown buttons
+  $('button.scroll-down').on('click', function(){
+
+    //Scroll to .main-content by default
+    var pos = $('.main-content').position().top;
+
+    $('html, body').animate({
+        scrollTop: pos
+    }, 580);
+
+  });
+
   //Contact form submit handler
   $('#contact-form').submit(function(){
 
@@ -57,7 +69,7 @@ $(document).ready(function(){
 
 
   /* Add transparency to desktop menu dropdowns on pages with hero graphics */
-  if($('.post-hero-header').length > 0)
+  if($('.page-hero-header').length > 0)
     $('.main-nav').addClass('overlays-hero');
 
 
@@ -95,7 +107,9 @@ $(document).ready(function(){
 });
 
 /* Once the hero image has loaded, hide the blurred placeholder */
-(function() { var heroEls = $('.hero-image-container');
+(function() {
+
+  var heroEls = $('.hero-image-container');
 
   if(heroEls.length === 0)
     return;

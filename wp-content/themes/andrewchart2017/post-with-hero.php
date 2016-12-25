@@ -1,4 +1,4 @@
-<header class="post-hero-header">
+<header class="page-hero-header">
 
   <div class="hero-image-container"
     data-hero-image-xl="<?php the_post_thumbnail_url('uncropped_xl')?>"

@@ -34,9 +34,16 @@ p {
   font-size: 1.1em;
 }
 
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+  color: #ff2f00;
+}
 
-li { list-style: none; }
+a:hover {
+  color: #ffea47;
+}
+
+ul li { list-style: none; }
 
 button,
 .button {
@@ -386,14 +393,6 @@ body.nav-open .nav-overlay {
   font-size: 1.1em;
 }
 
-.main-content blockquote {
-  font-weight: bold;
-  color: #444;
-  font-size: 1.85em;
-  padding-left: 0.5em;
-  border-left: 4px solid #ededed;
-  position: relative;
-}
 
 
 /* Single Post Content */
@@ -406,9 +405,31 @@ body.nav-open .nav-overlay {
   margin-bottom: 0.6em;
 }
 
-.main-content.post-content p {
+.main-content.post-content p,
+.main-content.post-content ol {
   font-size: 1.2em;
   line-height: 1.68em;
+}
+
+.main-content.post-content ol {
+  margin: 0 1.2em;
+}
+
+.main-content.post-content ol > li {
+  line-height: 147%;
+  margin-bottom: 0.6em;
+  padding-left: 0.85em;
+  font-size: 1.1em;
+}
+
+.main-content.post-content blockquote {
+  font-weight: bold;
+  color: #444;
+  font-size: 1.85em;
+  padding-left: 0.5em;
+  margin-top: 1em;
+  border-left: 4px solid #ededed;
+  position: relative;
 }
 
 .main-content.post-content aside {
@@ -418,6 +439,20 @@ body.nav-open .nav-overlay {
   width: 100%;
   position: relative;
   left: -1em;
+}
+
+.main-content.post-content aside.email-text,
+.main-content.post-content aside.email-text p {
+  font-family: monospace;
+  background-color: #eee;
+  font-size: 1em;
+}
+
+.main-content.post-content iframe {
+  margin: auto;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 380px;
 }
 
 .main-content.post-content footer.listening-to {
@@ -441,7 +476,7 @@ body.nav-open .nav-overlay {
 }
 
 /* POST HERO */
-.post-hero-header {
+.page-hero-header {
   width: 100%;
   height: 80%;
   height: calc(100% - 61px);
@@ -451,8 +486,8 @@ body.nav-open .nav-overlay {
   position: relative;
 }
 
-.post-hero-header .hero-image-container,
-.post-hero-header .hero-image-container > div {
+.page-hero-header .hero-image-container,
+.page-hero-header .hero-image-container > div {
   position: absolute;
   top: 0;
   left: 0;
@@ -465,7 +500,7 @@ body.nav-open .nav-overlay {
   background-size: cover;
 }
 
-.post-hero-header .hero-image-container .hero-placeholder-container {
+.page-hero-header .hero-image-container .hero-placeholder-container {
   will-change: opacity;
   opacity: 1;
 
@@ -474,13 +509,13 @@ body.nav-open .nav-overlay {
   -webkit-transition: opacity .3s ease-in-out;
 }
 
-.post-hero-header .hero-image-container .hero-placeholder-container.hide {
+.page-hero-header .hero-image-container .hero-placeholder-container.hide {
   opacity: 0;
 }
 
 
 
-.post-hero-header .vignette {
+.page-hero-header .vignette {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -493,19 +528,19 @@ body.nav-open .nav-overlay {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
 }
 
-.post-hero-header .post-title-area {
+.page-hero-header .post-title-area {
   position: absolute;
   width: 96%;
   padding: 0.4em 2%;
   bottom: 40px;
-  text-shadow: 0 1px 2px #a5a5a5;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.2);
 }
 
-.post-hero-header .post-title-area .title-column {
+.page-hero-header .post-title-area .title-column {
   margin-left: 0.6em;
 }
 
-.post-hero-header .post-title-area .post-meta-area {
+.page-hero-header .post-title-area .post-meta-area {
   color: #ff2f00;
   text-shadow: none;
   line-height: 145%;
@@ -514,35 +549,35 @@ body.nav-open .nav-overlay {
   font-weight: bold;
 }
 
-.post-hero-header .post-title-area .post-meta-area .breadcrumb a {
-  color: #ff2f00;
+.page-hero-header .post-title-area .post-meta-area .breadcrumb a {
+
 }
 
-.post-hero-header .post-title-area .post-meta-area .breadcrumb:after {
-  content: ' » ';
+.page-hero-header .post-title-area .post-meta-area .breadcrumb:after {
+  content: ' »';
 }
 
-.post-hero-header .post-title-area .post-meta-area .breadcrumb:last-of-type:after {
+.page-hero-header .post-title-area .post-meta-area .breadcrumb:last-of-type:after {
   content: '';
 }
 
-.post-hero-header .post-title-area h1 {
+.page-hero-header .post-title-area h1 {
   font-size: 2.4em;
   margin-bottom: 0.3em;
 }
 
-.post-hero-header .post-title-area .excerpt {
+.page-hero-header .post-title-area .excerpt {
   font-size: 1.1em;
 }
 
-.post-hero-header .see-more {
+.page-hero-header .see-more {
   text-align: center;
   position: absolute;
   bottom: 0;
   width: 100%;
 }
 
-.post-hero-header .see-more .scroll-down {
+.page-hero-header .see-more .scroll-down {
   color: #fff;
   font-size: 2.2em;
 }
@@ -640,13 +675,18 @@ padding-bottom: 1em;
     margin-top: 0;
   }
 
-  .main-content blockquote {
+  .main-content.post-content h1 {
+    font-size: 3em;
+    margin-bottom: 0.8em;
+  }
+
+  .main-content.post-content blockquote {
     font-size: 1.85em;
     border-left: 7px solid #ededed;
     padding-left: 3.3em;
   }
 
-  .main-content blockquote:before {
+  .main-content.post-content blockquote:before {
     content: "“";
     position: absolute;
     top: -0.3em;
@@ -657,17 +697,12 @@ padding-bottom: 1em;
     z-index: -1;
   }
 
-  .main-content.post-content h1 {
-    font-size: 3em;
-    margin-bottom: 0.8em;
-  }
-
-  .post-hero-header .post-title-area h1 {
+  .page-hero-header .post-title-area h1 {
     font-size: 3.2em;
     margin-bottom: 0.18em;
   }
 
-  .post-hero-header .post-title-area .excerpt {
+  .page-hero-header .post-title-area .excerpt {
     font-size: 1.18em;
   }
 
@@ -797,22 +832,26 @@ padding-bottom: 1em;
 
 
   /* Post Content */
-  .post-hero-header .post-title-area .title-column {
+  .page-hero-header .post-title-area .title-column {
 
     margin: 0 32% 0 2%;
   }
 
-  .post-hero-header .post-title-area .title-column h1 {
+  .page-hero-header .post-title-area .title-column h1 {
     font-size: 4em;
     line-height: 1.33em;
   }
 
-  .post-hero-header .post-title-area .excerpt {
+  .page-hero-header .post-title-area .excerpt {
     font-size: 1.33em;
   }
 
-  .post-hero-header .post-title-area .post-meta-area {
+  .page-hero-header .post-title-area .post-meta-area {
     margin-right: 1em;
+  }
+
+  .main-content.post-content blockquote {
+    margin-top: 1.5em;
   }
 
 
