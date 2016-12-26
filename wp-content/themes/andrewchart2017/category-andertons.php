@@ -47,8 +47,7 @@
         </div>
         <div class="sub-tile-part">
           <span class="excerpt"><?php the_excerpt(); ?></span>
-          <span class="date"><?php the_date(); ?></span>
-          <span class="cta">Read Now</span>
+          <span class="cta">Read More</span>
         </div>
       </a>
     </li>

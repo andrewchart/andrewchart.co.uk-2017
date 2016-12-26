@@ -50,7 +50,15 @@ function accouk_post_excerpt() {
   }
 }
 
-/* 5) Contact Form -- Render or Handle */
+/* 5) Unlimited posts per page on category "andertons" */
+function accouk_mywork_andertons_rpp($query) {
+  if (!is_admin() && $query->is_main_query() && is_category('andertons')) {
+    $query->set( 'posts_per_page', '-1' );
+  }
+}
+add_action( 'pre_get_posts', 'accouk_mywork_andertons_rpp' );
+
+/* 6) Contact Form -- Render or Handle */
 function accouk_contact_form_handler() {
 
 
