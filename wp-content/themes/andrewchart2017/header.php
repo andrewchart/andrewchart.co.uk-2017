@@ -49,11 +49,13 @@
           <button class="button menu-button">Menu</button>
         </div>
 
+				<?php include_once('nav.php'); ?>
+
         <?php the_content(); ?>
 
         <div class="logo"></div>
 
-        <?php include_once('nav.php'); ?>
+
 
       </header>
 
