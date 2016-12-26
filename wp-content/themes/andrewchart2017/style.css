@@ -513,7 +513,7 @@ body.nav-open .nav-overlay {
   width: 100%;
   height: 80%;
   height: calc(100% - 61px);
-  margin-bottom: 3em;
+  margin-bottom: 1em;
   color: #fff;
   background-color: #999;
   position: relative;
@@ -658,6 +658,11 @@ body.nav-open .nav-overlay {
 
 
 /* CATEGORY PAGES */
+.category-content h3 {
+  font-size: 1.2em;
+  margin-bottom: 2em;
+}
+
 .post-list {
     margin-top: 1em;
 }

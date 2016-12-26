@@ -34,6 +34,30 @@
 
 <section class="main-content category-content">
 
+  <h3>Below are some of the major pieces of ecommerce &amp; digital work I have completed on behalf of Andertons.</h3>
+
+  <?php if ( have_posts() ) : ?><ul class="post-list category-post-list"><?php endif; ?>
+  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+    <li>
+      <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+        <div class="main-tile-part">
+          <img src="<?php the_post_thumbnail_url('sixteennine_s'); ?>" />
+          <span><h3><?php the_title(); ?></h3></span>
+        </div>
+        <div class="sub-tile-part">
+          <span class="excerpt"><?php the_excerpt(); ?></span>
+          <span class="date"><?php the_date(); ?></span>
+          <span class="cta">Read Now</span>
+        </div>
+      </a>
+    </li>
+
+
+  <?php endwhile; else : ?>
+    <p><?php _e( 'Sorry, there are no posts in this category yet.' ); ?></p>
+  <?php endif; ?>
+
 </section>
 
 <?php get_footer(); ?>
