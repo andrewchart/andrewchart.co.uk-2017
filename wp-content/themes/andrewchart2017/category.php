@@ -9,7 +9,7 @@
 <section class="main-content category-content">
   <h1><?php single_cat_title(); ?></h1>
 
-  <?php if ( have_posts() ) echo '<ul class="post-list category-post-list">'; ?>
+  <?php if ( have_posts() ) : ?><ul class="post-list category-post-list"><?php endif; ?>
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
     <li>
@@ -30,10 +30,12 @@
   <?php endwhile; else : ?>
   	<p><?php _e( 'Sorry, there are no posts in this category yet.' ); ?></p>
   <?php endif; ?>
-  <?php if ( have_posts() ) echo '</ul>'; ?>
+
+  <?php if ( have_posts() ): ?>
+  </ul>
+  <div class="pagination"><?php echo paginate_links(); ?></div>
+  <?php endif; ?>
 
 </section>
-
-
 
 <?php get_footer(); ?>

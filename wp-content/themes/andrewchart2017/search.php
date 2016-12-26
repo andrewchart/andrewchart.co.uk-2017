@@ -9,7 +9,7 @@
 
   <h1>Search results for &ldquo;<?php the_search_query(); ?>&rdquo;</h1>
 
-  <?php if ( have_posts() ) echo '<ul class="post-list search-results-post-list">'; ?>
+  <?php if ( have_posts() ) : ?><ul class="post-list search-results-post-list"><?php endif; ?>
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
     <li>
@@ -30,7 +30,11 @@
   <?php endwhile; else : ?>
     <p><?php _e( 'Sorry, we could not find any results for your search.' ); ?></p>
   <?php endif; ?>
-  <?php if ( have_posts() ) echo '</ul>'; ?>
+  
+  <?php if ( have_posts() ): ?>
+  </ul>
+  <div class="pagination"><?php echo paginate_links(); ?></div>
+  <?php endif; ?>
 
 </section>
 

@@ -751,6 +751,26 @@ body.nav-open .nav-overlay {
     margin-bottom: 0.7em;
 }
 
+/* PAGINATION */
+.pagination {
+  margin-top: 2em;
+  font-size: 1.2em;
+  text-align: center;
+  line-height: 2.4em;
+}
+
+.pagination a,
+.pagination span {
+  padding: 0.4em 0.8em;
+  border: 1px solid #eee;
+}
+
+.pagination a.prev,
+.pagination a.next {
+  display: none;
+}
+
+
 /* CONTACT PAGE */
 .main-content.contact-form-content {
   max-width: 540px;
@@ -886,6 +906,13 @@ body.nav-open .nav-overlay {
     height: 7em;
     margin-top: 0.6em;
   }
+
+  .pagination a.next,
+  .pagination a.prev {
+    display: inline;
+  }
+
+}
 
 /* Major Breakpoint 768 */
 @media screen and (min-width: 768px) {
