@@ -19,4 +19,7 @@
     <blockquote><?php echo types_render_field('listening-to-quote'); ?></blockquote>
   </footer>
   <?php endif; ?>
+
+  <?php include_once('comments.php'); ?>
+  
 </section>

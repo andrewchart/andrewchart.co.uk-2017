@@ -45,4 +45,6 @@
   </footer>
   <?php endif; ?>
 
+  <?php include_once('comments.php'); ?>
+
 </section>

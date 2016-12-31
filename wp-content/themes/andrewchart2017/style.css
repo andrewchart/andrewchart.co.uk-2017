@@ -107,6 +107,11 @@ textarea {
   width: 100%;
 }
 
+.site-header .logo {
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .menu-button-area {
   height: 58px;
 }
@@ -114,6 +119,7 @@ textarea {
 /* Homepage Header */
 .site-header__home {
   margin-bottom: 44px;
+  border-bottom: 4px solid #000;
 
   display: -webkit-box;
   display: -ms-flexbox;
@@ -136,14 +142,14 @@ textarea {
 }
 
 .site-header__home .logo {
-
-  /*background-image: url(img/a/640.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: -325px 4px;*/
-
+  position: relative;
+  top: 5px;
+  width: 100%;
+  max-width: 560px;
+  margin: auto;
   flex-grow: 10;
-
+  background-image: url('img/a/homepage-logo-centered.png');
+  background-position: center bottom;
 }
 
 .site-header .menu-button {
@@ -189,14 +195,11 @@ textarea {
 .site-header__slim .logo {
     height: 100%;
     width: 100%;
-    text-align: center;
     font-size: 1.5em;
     font-weight: 400;
     font-family: 'Oswald', 'Helvetica', 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
-    background-image: url(img/a/320.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: -55px 4px;
+    background-image: url(img/a/slim-header-logo.png);
+    background-position: 6px 4px;
 }
 
 .site-header__slim .logo a {
@@ -213,9 +216,9 @@ textarea {
 
 /* Footer */
 .site-footer {
-  height: 48px;
-  background-color: #e4e4e4;
-  margin-top: 62px;
+  margin-top: 2em;
+  text-align: center;
+  color: #aaa;
 }
 
 /* NAV */
@@ -467,6 +470,11 @@ body.nav-open .nav-overlay {
   min-height: 380px;
 }
 
+.main-content.post-content iframe[src^="https://embed.spotify.com"] {
+  height: 80px;
+  min-height: 0;
+}
+
 .main-content.post-content table {
   width: 100%;
   text-align: left;
@@ -506,6 +514,10 @@ body.nav-open .nav-overlay {
 
 .main-content.post-content footer.listening-to blockquote:before {
   left: 10px;
+}
+
+.main-content.post-content .comments.facebook-comments-module {
+  margin-top: 3em;
 }
 
 /* POST HERO */
@@ -886,6 +898,14 @@ body.nav-open .nav-overlay {
 
 /* Minor breakpoint: 580 */
 @media screen and (min-width: 580px) {
+  .site-header__home {
+    border-bottom: 10px solid #000;
+  }
+
+  .site-header__home .logo {
+    top: 10px;
+  }
+
   .post-list {
     display: flex;
     flex-wrap: wrap;
@@ -931,11 +951,21 @@ body.nav-open .nav-overlay {
     display: none;
   }
 
-  .site-header .logo {
-    width: auto;
+  .site-header__slim .logo {
     text-align: left;
+    width: auto;
     padding-left: 84px;
     margin-right: 1em;
+  }
+
+  .site-header__home {
+    border-bottom: 10px solid #000;
+  }
+
+  .site-header__home .logo {
+    background-image: url('img/a/homepage-logo-wide.png');
+    max-width: none;
+    background-position: 67% 10px
   }
 
   .site-header .nav-overlay {
