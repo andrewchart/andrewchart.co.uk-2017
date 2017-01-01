@@ -27,6 +27,10 @@ function accouk_display_post_content() {
       include_once('post-with-hero.php');
       break;
 
+    case 'portfolio':
+      include_once('post-portfolio.php');
+      break;
+
     case 'default':
       include_once('post-default.php');
       break;

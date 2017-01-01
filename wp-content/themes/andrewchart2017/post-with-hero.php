@@ -20,8 +20,11 @@
     <div class="post-meta-area">
       <?php
         $cats = get_the_category();
-        foreach($cats as $cat) {
-          echo '&nbsp;<span class="breadcrumb"><a href="' . get_category_link($cat) . '">' . $cat->cat_name . '</a></span>';
+
+        foreach ($cats as $cat) {
+          $last_cat_link = get_category_link($cat);
+          $last_cat_name = $cat->cat_name;
+          echo '&nbsp;<span class="breadcrumb"><a href="' . $last_cat_link . '">' . $last_cat_name . '</a></span>';
         }
       ?><br />Published on <?php the_date(); ?>
     </div>
@@ -44,6 +47,11 @@
     <blockquote><?php echo types_render_field('listening-to-quote'); ?></blockquote>
   </footer>
   <?php endif; ?>
+
+  <nav class="end-post-nav">
+    <a class="back-to-category" href="<?php echo $last_cat_link; ?>">Return to &ldquo;<?php echo $last_cat_name; ?>&rdquo;</a>
+    <section class="tags"><?php the_tags("<span>Tags: </span>", " "); ?></section>
+  </nav>
 
   <?php include_once('comments.php'); ?>
 
