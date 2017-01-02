@@ -24,26 +24,73 @@ function accouk_display_post_content() {
   switch($post_formats[0]->slug) {
 
     case 'post-with-hero':
-      include_once('post-with-hero.php');
+      include_once('templates/post-with-hero.php');
       break;
 
     case 'portfolio':
-      include_once('post-portfolio.php');
+      include_once('templates/post-portfolio.php');
       break;
 
     case 'default':
-      include_once('post-default.php');
+      include_once('templates/post-default.php');
       break;
 
     case 'no-featured-image':
-      include_once('post-no-featured-image.php');
+      include_once('templates/post-no-featured-image.php');
       break;
 
     default:
-      include_once('post-default.php');
+      include_once('templates/post-default.php');
       break;
 
   }
+
+}
+
+
+/* 3) Set a global $main_category array on single posts for use in components */
+function accouk_set_global_main_cat() {
+
+  //Requires Yoast SEO
+  $yoast_primary_cat = new WPSEO_Primary_Term('category', get_the_ID());
+  $yoast_primary_cat = $yoast_primary_cat->get_primary_term();
+
+  $cat = get_category($yoast_primary_cat);
+  $name = $cat->cat_name;
+  $slug = $cat->slug;
+  $link = get_term_link($yoast_primary_cat);
+
+  $GLOBALS['main_category'] = array('name' => $name, 'link' => $link, 'slug' => $slug);
+
+}
+
+/* 3) Display Post Meta Information */
+function accouk_display_post_meta() {
+
+  global $main_category;
+  echo '<div class="published-date">Published on '; the_date();
+  echo ' in <a href="' . $main_category['link'] . '" class="breadcrumb">' . $main_category['name'] . '</a></div>';
+
+}
+
+/* 3) Display Last Updated Date for chosen primary categories */
+function accouk_display_post_last_updated() {
+
+  $show_last_updated = array(
+    'web',
+    'ecommerce',
+    'development'
+  );
+
+  global $main_category;
+
+  if(!in_array($main_category['slug'], $show_last_updated))
+    return;
+
+  if(get_the_date('d-m-Y') === get_the_modified_date('d-m-Y'))
+    return;
+
+  echo '<div class="last-updated-date">Last updated '; the_modified_date();  echo '</div>';
 
 }
 
@@ -51,6 +98,7 @@ function accouk_display_post_content() {
 function accouk_display_post_series() {
 
   $first_post_series = get_the_terms(get_the_id(), 'post-series')[0]; //Only displays one post series
+  if(empty($first_post_series)) return;
 
   $link = get_category_link($first_post_series->term_id);
   $series = $first_post_series->name;
@@ -80,7 +128,6 @@ add_action( 'pre_get_posts', 'accouk_mywork_andertons_rpp' );
 
 /* 6) Contact Form -- Render or Handle */
 function accouk_contact_form_handler() {
-
 
   if(isset($_POST['message'])):
 
@@ -145,7 +192,6 @@ function reCaptchaOk($response) {
   }
 
 }
-
 
 
 /* 8 -- Inserts paragraph and break tags upon pulling text data into a page */

@@ -3,6 +3,8 @@
 
 ?>
 
+<?php accouk_set_global_main_cat(); ?>
+
 <?php get_header(); ?>
 
 <?php accouk_display_post_content(); ?>
