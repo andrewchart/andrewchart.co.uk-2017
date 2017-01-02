@@ -78,7 +78,8 @@ $(document).ready(function(){
 
     //Update the progress bar (run on document ready)
     (window.updatePostProgressValue = function() {
-      $('progress.post-progress').attr("value",document.body.scrollTop);
+      var progress = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      $('progress.post-progress').attr("value",progress);
     })();
 
     //Set the max

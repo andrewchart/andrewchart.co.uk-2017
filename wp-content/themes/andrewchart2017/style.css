@@ -26,6 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h3, h5 {
   font-family: 'Oswald', 'Helvetica', 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+  font-weight: 400;
 }
 
 p {
@@ -78,6 +79,8 @@ textarea {
   font-size: 1em;
   border: 1px solid #ddd;
   color: #777;
+  border-radius: 0;
+  -webkit-appearance: none;
 }
 
 .error {
@@ -369,8 +372,9 @@ body.nav-open .nav-overlay {
 .main-nav .search-form .search-box {
   font-size: 1em;
   padding: 0.3em 0.4em;
+  width: 80%;
 
-  flex-grow: 10
+  flex-grow: 10;
 }
 
 .main-nav .search-form .search-icon {
@@ -379,6 +383,7 @@ body.nav-open .nav-overlay {
   background: none;
   border: 0;
   color: #aaa;
+  -webkit-appearance: none;
 }
 
 .main-nav .search-form .search-icon:active {
@@ -415,6 +420,11 @@ body.nav-open .nav-overlay {
   margin-bottom: 0.2em;
 }
 
+.main-content.post-content h3 {
+  font-size: 1.3em;
+  margin-bottom: 0.3em;
+}
+
 .post-meta-area {
   color: #ff2f00;
   line-height: 145%;
@@ -449,19 +459,21 @@ body.nav-open .nav-overlay {
   font-size: 1.1em;
 }
 
-.main-content.post-content blockquote {
-  font-weight: bold;
+.main-content.post-content blockquote,
+.main-content.post-content .excerpt {
   color: #444;
-  font-size: 1.85em;
   padding-left: 0.5em;
   margin-top: 1em;
   border-left: 4px solid #ededed;
   position: relative;
 }
 
-.main-content.post-content .excerpt,
+.main-content.post-content blockquote {
+  font-size: 1.85em;
+}
+
 .main-content.post-content aside {
-  background-color: #efefef;
+  background-color: rgba(255, 47, 0, 0.14);
   padding: 1.2em 1.2em 1px;
   margin-bottom: 1.5em;
   width: 100%;
@@ -470,7 +482,7 @@ body.nav-open .nav-overlay {
 }
 
 .main-content.post-content aside {
-  background-color: rgba(255, 47, 0, 0.14);
+
 }
 
 .main-content.post-content aside.email-text,
@@ -501,6 +513,7 @@ body.nav-open .nav-overlay {
 
 .main-content.post-content table {
   width: 100%;
+  min-width: 290px;
   text-align: left;
   border-spacing: 0;
   border-collapse: collapse;
@@ -515,7 +528,6 @@ body.nav-open .nav-overlay {
 .main-content.post-content th,
 .main-content.post-content td {
   vertical-align: bottom;
-  font-weight: bold;
   border: 1px solid #ddd;
   padding: 0.8em 0.4em;
 }
@@ -699,6 +711,7 @@ body.nav-open .nav-overlay {
   position: fixed;
   top: 0;
   left: 0;
+  border: 0;
 
   width: 100%;
   height: 4px;
@@ -721,6 +734,10 @@ body.nav-open .nav-overlay {
 }
 
 .post-progress::-webkit-progress-value {
+  background-color: #ff2f00;
+}
+
+.post-progress::-moz-progress-bar {
   background-color: #ff2f00;
 }
 
@@ -820,7 +837,6 @@ body.nav-open .nav-overlay {
 
 .post-list li a .sub-tile-part .cta {
     color: #ff2f00;
-    font-weight: bold;
     margin-bottom: 0.7em;
 }
 
@@ -889,6 +905,7 @@ body.nav-open .nav-overlay {
   padding: 0.5em 3em;
   margin-top: 1em;
   width: 100%;
+  -webkit-appearance: none;
 }
 
 .contact-form textarea {
@@ -944,6 +961,9 @@ body.nav-open .nav-overlay {
 .main-content.page404-content .search-form .search-icon {
   padding: 0 0.4em;
   cursor: pointer;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
 }
 
 .main-content.page404-content .search-form .search-icon:hover {
@@ -961,9 +981,13 @@ body.nav-open .nav-overlay {
     font-size: 3em;
   }
 
+  .main-content.post-content blockquote,
+  .main-content.post-content .excerpt {
+    border-left: 7px solid #ededed;
+  }
+
   .main-content.post-content blockquote {
     font-size: 1.85em;
-    border-left: 7px solid #ededed;
     padding-left: 3.3em;
   }
 
@@ -976,6 +1000,10 @@ body.nav-open .nav-overlay {
     color: #ededed;
     font-size: 4em;
     z-index: -1;
+  }
+
+  .main-content.post-content .excerpt {
+    padding-left: 1em;
   }
 
   .page-hero-header .post-title-area h1 {

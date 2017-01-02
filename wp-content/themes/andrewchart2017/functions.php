@@ -110,7 +110,7 @@ function accouk_contact_form_handler() {
 
 }
 
-/* 2) Check Recaptcha Response */
+/* 7) Check Recaptcha Response */
 function reCaptchaOk($response) {
 
   //cURL api
@@ -132,12 +132,25 @@ function reCaptchaOk($response) {
 
 
 
-// 6c -- Inserts paragraph and break tags upon pulling text data into a page
+/* 8 -- Inserts paragraph and break tags upon pulling text data into a page */
 function pBr($in) {
 	$in = "<p>" . str_replace(array("\r\n","\r","\n","<br /><br />"),array("<br />","<br />","<br />","</p><p>"),$in);
 	$in .= "</p>";
 	return $in;
 }
+
+
+/* 9 -- Exclude 'pages' from search results */
+function accouk_exclude_pages_from_search_results($query) {
+
+  if ($query->is_search) {
+    $query->set('post_type', 'post');
+  }
+
+  return $query;
+
+}
+add_filter('pre_get_posts','accouk_exclude_pages_from_search_results');
 
 
 ?>
