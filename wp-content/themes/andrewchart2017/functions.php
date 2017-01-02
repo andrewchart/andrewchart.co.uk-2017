@@ -35,12 +35,28 @@ function accouk_display_post_content() {
       include_once('post-default.php');
       break;
 
+    case 'no-featured-image':
+      include_once('post-no-featured-image.php');
+      break;
+
     default:
       include_once('post-default.php');
       break;
 
   }
 
+}
+
+/* 3) Display Post Series Information */
+function accouk_display_post_series() {
+
+  $first_post_series = get_the_terms(get_the_id(), 'post-series')[0]; //Only displays one post series
+
+  $link = get_category_link($first_post_series->term_id);
+  $series = $first_post_series->name;
+  $html = 'Part of the &ldquo;<a href="' . $link . '">' . $series . '</a>&rdquo; post series';
+
+  echo $html;
 }
 
 /* 3) Excerpt Length and Ellipsis */

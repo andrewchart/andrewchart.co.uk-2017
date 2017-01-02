@@ -28,6 +28,11 @@
         }
       ?><br />Published on <?php the_date(); ?>
     </div>
+
+    <div class="post-series-area">
+      <?php accouk_display_post_series(); ?>
+    </div>
+
   </section>
 
 

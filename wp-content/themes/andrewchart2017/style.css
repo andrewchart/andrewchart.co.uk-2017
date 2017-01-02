@@ -425,13 +425,12 @@ body.nav-open .nav-overlay {
   margin-bottom: 0.3em;
 }
 
-.post-meta-area {
-  color: #ff2f00;
+.post-meta-area, .post-series-area {
   line-height: 145%;
 }
 
 .main-content.post-content .post-meta-area {
-  margin-bottom: 1em;
+  margin-bottom: 0.3em;
 }
 
 .post-meta-area .breadcrumb:after {
@@ -440,6 +439,19 @@ body.nav-open .nav-overlay {
 
 .post-meta-area .breadcrumb:last-of-type:after {
   content: '';
+}
+
+.post-series-area {
+  color: #888;
+  margin-bottom: 0.8em;
+}
+
+.post-series-area a {
+  color: #888;
+}
+
+.post-series-area a:hover {
+  text-decoration: underline;
 }
 
 .main-content.post-content p,
@@ -667,6 +679,18 @@ body.nav-open .nav-overlay {
   text-shadow: none;
   text-align: right;
   margin-right: 0.6em;
+  color: #ff2f00;
+}
+
+.page-hero-header .post-title-area .post-series-area {
+  text-align: right;
+  color: #fff;
+  margin-right: 0.6em;
+  padding-left: 40%;
+}
+
+.page-hero-header .post-title-area .post-series-area a {
+  color: #fff;
 }
 
 .page-hero-header .post-title-area h1 {
@@ -743,9 +767,14 @@ body.nav-open .nav-overlay {
 
 
 /* CATEGORY PAGES */
-.category-content h3 {
-  font-size: 1.2em;
+.archive-description {
+  font-family: 'Oswald', 'Helvetica', 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+  font-size: 1.1em;
   margin-bottom: 2em;
+}
+
+.archive-description p {
+  line-height: 161%;
 }
 
 .post-list {

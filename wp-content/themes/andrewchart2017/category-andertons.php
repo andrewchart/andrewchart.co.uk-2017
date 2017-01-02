@@ -34,7 +34,7 @@
 
 <section class="main-content category-content">
 
-  <h3>Below are some of the major pieces of ecommerce &amp; digital work I have completed on behalf of Andertons.</h3>
+  <div class="archive-description"><?php echo term_description(); ?></div>
 
   <?php if ( have_posts() ) : ?><ul class="post-list category-post-list"><?php endif; ?>
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
