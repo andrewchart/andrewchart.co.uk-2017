@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="css/prism.css" />
 
     <?php wp_head(); ?>
 		<script src='https://www.google.com/recaptcha/api.js'></script>

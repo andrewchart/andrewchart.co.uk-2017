@@ -398,6 +398,7 @@ body.nav-open .nav-overlay {
   max-width: 830px;
   margin: auto;
   min-height: calc(100% - 2em - 170px);
+  overflow: hidden;
 }
 
 .main-content h1 {
@@ -423,7 +424,7 @@ body.nav-open .nav-overlay {
 
 .main-content.post-content h3 {
   font-size: 1.3em;
-  margin-bottom: 0.3em;
+  margin: 2.2em 0 0.4em;
 }
 
 .post-meta-area, .post-series-area {
@@ -453,20 +454,26 @@ body.nav-open .nav-overlay {
 }
 
 .main-content.post-content p,
-.main-content.post-content ol {
+.main-content.post-content ol,
+.main-content.post-content ul,
+.main-content.post-content aside {
   font-size: 1.2em;
   line-height: 1.68em;
 }
 
-.main-content.post-content ol {
-  margin: 0 1.2em;
+.main-content.post-content ol,
+.main-content.post-content ul {
+  margin: 0 1.2em 2em;
 }
 
-.main-content.post-content ol > li {
+.main-content.post-content li {
   line-height: 147%;
   margin-bottom: 0.6em;
-  padding-left: 0.85em;
-  font-size: 1.1em;
+  padding-left: 0.45em;
+}
+
+.main-content.post-content ul li {
+  list-style: disc;
 }
 
 .main-content.post-content blockquote,
@@ -484,15 +491,11 @@ body.nav-open .nav-overlay {
 
 .main-content.post-content aside {
   background-color: rgba(255, 47, 0, 0.14);
-  padding: 1.2em 1.2em 1px;
+  padding: 1.2em;
   margin-bottom: 1.5em;
   width: 100%;
   position: relative;
   left: -1em;
-}
-
-.main-content.post-content aside {
-
 }
 
 .main-content.post-content aside.email-text,
@@ -529,11 +532,20 @@ body.nav-open .nav-overlay {
   border-collapse: collapse;
   font-size: 1.15em;
   margin-bottom: 1em;
+  line-height: 147%;
+}
+
+.main-content.post-content table caption {
+  background-color: #ff2f00;
+  border: 1px solid #ddd;
+  color: #fff;
+  padding: 0.1em 0;
+  border-bottom: 0;
 }
 
 .main-content.post-content th {
   font-weight: bold;
-  background-color: #eee;
+  background-color: #f9f6f5;
 }
 
 .main-content.post-content th,
@@ -541,6 +553,11 @@ body.nav-open .nav-overlay {
   vertical-align: bottom;
   border: 1px solid #ddd;
   padding: 0.8em 0.4em;
+}
+
+.main-content.post-content .wit-table th,
+.main-content.post-content .wit-table td {
+  vertical-align: top;
 }
 
 .main-content.post-content footer.listening-to {
@@ -582,7 +599,7 @@ body.nav-open .nav-overlay {
 }
 
 .main-content.post-content .end-post-nav .back-to-category {
-  display: block;
+  display: inline-block;
   font-family: 'Oswald', 'Helvetica', 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
   font-size: 1em;
 }
@@ -593,7 +610,6 @@ body.nav-open .nav-overlay {
 
 .main-content.post-content .end-post-nav .tags span {
   display: inline-block;
-  margin-right: 0.4em;
 }
 
 .main-content.post-content .end-post-nav .tags a {
@@ -601,7 +617,7 @@ body.nav-open .nav-overlay {
   background-color: #ececec;
   color: #333;
   display: inline-block;
-  margin: 0 0.4em 0.4em 0;
+  margin: 0 0 0.4em 0.4em;
 }
 
 .main-content.post-content .comments.facebook-comments-module {
@@ -685,7 +701,7 @@ body.nav-open .nav-overlay {
 }
 
 .page-hero-header .post-title-area .post-meta-area .last-updated-date {
-  color: #d6d6d6;
+  color: #ff2f00;
 }
 
 .page-hero-header .post-title-area .post-series-area {

@@ -141,4 +141,7 @@ $(document).ready(function(){
 
   });
 
+  /* Add line numbers to all code */
+  $('code').parents('pre').addClass('line-numbers')
+
 })();
