@@ -142,7 +142,7 @@ textarea {
 
 .site-header__home .summary-text {
   padding: 0 2em 1em;
-
+  font-weight: 400;
 }
 
 .site-header__home .logo {
@@ -567,7 +567,6 @@ body.nav-open .nav-overlay {
 
 .main-content.post-content footer.listening-to div {
   color: #ff2f00;
-  font-weight: bold;
   font-size: 1.4em;
   margin: 1.1em 0 1.3em;
 }
@@ -1155,8 +1154,11 @@ body.nav-open .nav-overlay {
   .site-header__slim .logo {
     text-align: left;
     width: auto;
-    padding-left: 84px;
     margin-right: 1em;
+  }
+
+  .site-header__slim .logo a {
+    padding-left: 84px;
   }
 
   .site-header__home {
@@ -1166,7 +1168,6 @@ body.nav-open .nav-overlay {
   .site-header__home .logo {
     background-image: url('img/a/homepage-logo-wide.png');
     max-width: none;
-    background-position: 67% 10px
   }
 
   .site-header .nav-overlay {
@@ -1248,15 +1249,47 @@ body.nav-open .nav-overlay {
     margin-top: 3px;
   }
 
-  /* When the main nav overlays a hero, and we're over the mobile menu point, */
-  /* Make the nav more transparent */
-  .main-nav.overlays-hero > ul > li > a:active,
-  .main-nav.overlays-hero > ul > li > ul.children > li > a:hover {
-    background-color: rgba(222,222,222,0.65);
+  .main-nav > ul > li > ul.children > li {
+    background-color: rgba(243,243,243,0.88);
+  }
+
+  .site-header__home .main-nav li.cat-item:hover ul.children {
+    box-shadow: 3px 3px 6px rgba(144, 21, 0, 0.4);
+    margin-top: 0;
+  }
+
+  .site-header__home .main-nav > ul > li.cat-item:hover,
+  .site-header__home .main-nav > ul > li > ul.children > li {
+    background-color: rgba(244, 44, 0, 0.8);
+    border: 0;
+  }
+
+  .site-header__home .main-nav > ul > li.cat-item:hover {
+    box-shadow: 2px 0 9px rgba(144, 21, 0, 0.25);
+  }
+
+  .site-header__home .main-nav > ul >li > ul.children > li > a {
+    color: #fff;
+  }
+
+  .site-header__home .main-nav > ul > li > a:active,
+  .site-header__home .main-nav > ul > li > ul.children > li > a:hover {
+    color: #ffea47;
+    background-color: rgba(244, 44, 0, 0.4);
+  }
+
+  .main-nav > ul > li > a:active,
+  .main-nav > ul > li > ul.children > li > a:hover {
+    background-color: rgba(222,222,222,0.76);
   }
 
   .main-nav.overlays-hero > ul > li > ul.children > li {
-    background-color: rgba(243,243,243,0.7);
+    background-color: rgba(243,243,243,0.75);
+  }
+
+  .main-nav.overlays-hero > ul > li > a:active,
+  .main-nav.overlays-hero > ul > li > ul.children > li > a:hover {
+    background-color: rgba(222,222,222,0.6);
   }
 
   .site-header .search-form {
