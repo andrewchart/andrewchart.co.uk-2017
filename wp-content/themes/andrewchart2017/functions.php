@@ -11,8 +11,6 @@ if(function_exists('add_image_size')) {
   add_image_size('sixteennine_s',640,360, true);
 	add_image_size('uncropped_tiny',32,9999);
   add_image_size('sixteennine_tiny',32,18,true);
-
-	//add_image_size('widget-thumbnail-large',310,174,true);
 }
 
 
@@ -118,6 +116,7 @@ function accouk_post_excerpt() {
   }
 }
 
+
 /* 5) Unlimited posts per page on category "andertons" */
 function accouk_mywork_andertons_rpp($query) {
   if (!is_admin() && $query->is_main_query() && is_category('andertons')) {
@@ -125,6 +124,45 @@ function accouk_mywork_andertons_rpp($query) {
   }
 }
 add_action( 'pre_get_posts', 'accouk_mywork_andertons_rpp' );
+
+
+/* 6) Render latest posts on homepage */
+function accouk_homepage_latest_posts() {
+
+  $args = array('post_type' => 'post', 'category__not_in' => 7, 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC');
+  $query = new WP_Query( $args );
+
+  if ( $query->have_posts() ) {
+
+    echo '<ul class="post-list homepage-post-list">';
+
+  	while ( $query->have_posts() ) {
+  		$query->the_post(); ?>
+
+      <li>
+        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+          <div class="main-tile-part">
+            <img src="<?php the_post_thumbnail_url('sixteennine_s'); ?>" />
+            <span><h3><?php the_title(); ?></h3></span>
+          </div>
+          <div class="sub-tile-part">
+            <span class="excerpt"><?php the_excerpt(); ?></span>
+            <span class="date"><?php the_date(); ?></span>
+            <span class="cta">Read Now</span>
+          </div>
+        </a>
+      </li>
+      <?php
+  	}
+
+  	echo '</ul>';
+
+  } else {
+  	echo "<p>Sorry, an error has occurred</p>";
+  }
+
+}
+
 
 /* 6) Contact Form -- Render or Handle */
 function accouk_contact_form_handler() {

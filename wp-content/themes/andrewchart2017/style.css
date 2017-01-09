@@ -786,6 +786,23 @@ body.nav-open .nav-overlay {
   background-color: #ff2f00;
 }
 
+/* HOMEPAGE */
+.main-content.homepage-content h5 {
+  font-size: 1.4em;
+  margin-top: 2em;
+}
+
+.main-content.homepage-content .read-more-blog {
+  font-family: 'Oswald', 'Helvetica', 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+  font-size: 1em;
+  text-align: right;
+}
+
+.main-content.homepage-content .read-more-blog a:after {
+  content: " »";
+}
+
+
 
 /* CATEGORY PAGES */
 .archive-description {
