@@ -453,12 +453,20 @@ body.nav-open .nav-overlay {
   margin-top: 0.2em;
 }
 
-.main-content.post-content p,
+.main-content.post-content > p,
 .main-content.post-content ol,
 .main-content.post-content ul,
-.main-content.post-content aside {
+.main-content.post-content > aside {
   font-size: 1.2em;
   line-height: 1.68em;
+}
+
+.main-content.post-content > aside > p {
+  font-size: 1em;
+}
+
+.main-content.post-content > aside > p:last-of-type {
+  margin-bottom: 0;
 }
 
 .main-content.post-content ol,
@@ -550,7 +558,7 @@ body.nav-open .nav-overlay {
 
 .main-content.post-content th,
 .main-content.post-content td {
-  vertical-align: bottom;
+  vertical-align: top;
   border: 1px solid #ddd;
   padding: 0.8em 0.4em;
 }
@@ -598,12 +606,12 @@ body.nav-open .nav-overlay {
 }
 
 .main-content.post-content .end-post-nav .back-to-category {
-  display: inline-block;
+  display: block;
   font-family: 'Oswald', 'Helvetica', 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
   font-size: 1em;
 }
 
-.main-content.post-content .end-post-nav .back-to-category:before {
+.main-content.post-content .end-post-nav .back-to-category a:before {
   content: "« ";
 }
 
@@ -787,6 +795,11 @@ body.nav-open .nav-overlay {
 }
 
 /* HOMEPAGE */
+.main-content.homepage-content h3.homepage-copy-heading {
+  font-size: 1.4em;
+  margin-bottom: 0.5em;
+}
+
 .main-content.homepage-content h5 {
   font-size: 1.4em;
   margin-top: 2em;
@@ -1149,7 +1162,6 @@ body.nav-open .nav-overlay {
   }
 
   .main-content.post-content .end-post-nav .back-to-category {
-    display: inline-block;
     float: left;
     padding: 0.4em 0;
   }
@@ -1332,7 +1344,6 @@ body.nav-open .nav-overlay {
   }
 
 
-
   /* Post Content */
   .page-hero-header .post-title-area .title-column {
 
@@ -1356,9 +1367,93 @@ body.nav-open .nav-overlay {
     margin-top: 1.5em;
   }
 
+
+
   /* Category Pages */
   .post-list li a .sub-tile-part .excerpt {
     font-size: 1em;
+  }
+
+}
+
+/* Minor breakpoint 768 x 600*/
+@media screen and (min-width: 768px) and (min-height: 600px) {
+
+  /* Homepage post list */
+  .latest-posts {
+    position: absolute;
+    bottom: 70px;
+    height: 51%;
+    width: 46%;
+    left: 2%;
+  }
+
+  .main-content.homepage-content .latest-posts h5 {
+    margin: 0 0 0.7em;
+    color: #ffea47;
+  }
+
+  .latest-posts .post-list.homepage-post-list {
+    height: 79%;
+    margin-top: 0;
+  }
+
+  .latest-posts .post-list.homepage-post-list li {
+    margin: 0 0 2%;
+    width: 100%;
+    height: 22.5%;
+    border: 0;
+    background: transparent;
+  }
+
+  .latest-posts .post-list.homepage-post-list li:hover {
+    background-color: rgba(244, 44, 0, 0.8);
+    box-shadow: 3px 3px 6px rgba(144, 21, 0, 0.4);
+  }
+
+  .latest-posts .post-list.homepage-post-list li a .main-tile-part {
+    height: 100%;
+  }
+
+  .latest-posts .post-list.homepage-post-list li a .main-tile-part img {
+    height: 100%;
+    width: auto;
+    float: left;
+  }
+
+  .latest-posts .post-list.homepage-post-list li a .main-tile-part span {
+    position: static;
+    display: inline;
+    overflow: hidden;
+    background: none;
+  }
+
+  .latest-posts .post-list.homepage-post-list li a .main-tile-part span h3 {
+    font-size: 1em;
+    text-align: left;
+    position: relative;
+    top: 0;
+    padding: 0.6% 2%;
+    transform: none;
+    text-shadow: none;
+    margin-right: 0;
+    left: 2.5%;
+  }
+
+  .latest-posts .post-list.homepage-post-list li a .sub-tile-part {
+    display: none;
+  }
+
+  .latest-posts .read-more-blog {
+    margin-top: 0.5em;
+  }
+
+  .latest-posts .read-more-blog a {
+    color: #fff;
+  }
+
+  .latest-posts .read-more-blog a:hover {
+    color: #ffea47;
   }
 
 }

@@ -8,7 +8,7 @@
 
 <section class="main-content homepage-content">
 
-  <p>Hi, I'm Andrew.</p>
+  <h3 class="homepage-copy-heading">Hi, I'm Andrew.</h3>
   <p>I'm based in Surrey, South East England, and I
     work as the Head of E-commerce for one of the UK's
     most exciting retail brands. I'm also a keen runner
@@ -33,7 +33,7 @@
         </a>
       </li>
       <li>
-        <a href="<?php site_url('contact-me')?>" title="Contact Me">
+        <a href="<?php echo site_url('contact-me')?>" title="Contact Me">
           <div class="main-tile-part">
             <img src="<?php echo get_the_post_thumbnail_url(6,'sixteennine_s'); ?>" />
             <span><h3>Contact Me</h3></span>
