@@ -142,7 +142,7 @@ function accouk_homepage_latest_posts() {
       <li>
         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
           <div class="main-tile-part">
-            <img src="<?php the_post_thumbnail_url('sixteennine_s'); ?>" />
+            <?php echo accouk_post_tile_image(); ?>
             <span><h3><?php the_title(); ?></h3></span>
           </div>
           <div class="sub-tile-part">
@@ -161,6 +161,25 @@ function accouk_homepage_latest_posts() {
   	echo "<p>Sorry, an error has occurred</p>";
   }
 
+}
+
+/* 7) Echo the post thumbnail image or a default */
+function accouk_post_tile_image() {
+  $thumb = get_the_post_thumbnail_url(null, 'sixteennine_s');
+  if(empty($thumb)) {
+
+    $col = "#";
+    $i=0;
+    while($i<3) {
+      $col .= str_pad( dechex( mt_rand( 0, 255 ) ), 2, '0', STR_PAD_LEFT);
+      $i++;
+    }
+
+    return '<img style="background-color: ' . $col . '" src="img/a/default-thumbnail.png" />';
+    
+  } else {
+    return '<img src="'.$thumb.'" />';
+  }
 }
 
 

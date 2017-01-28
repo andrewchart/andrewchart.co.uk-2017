@@ -15,7 +15,7 @@
     <li>
       <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
         <div class="main-tile-part">
-          <img src="<?php the_post_thumbnail_url('sixteennine_s'); ?>" />
+          <?php echo accouk_post_tile_image(); ?>
           <span><h3><?php the_title(); ?></h3></span>
         </div>
         <div class="sub-tile-part">
@@ -30,7 +30,7 @@
   <?php endwhile; else : ?>
     <p><?php _e( 'Sorry, we could not find any results for your search.' ); ?></p>
   <?php endif; ?>
-  
+
   <?php if ( have_posts() ): ?>
   </ul>
   <div class="pagination"><?php echo paginate_links(); ?></div>

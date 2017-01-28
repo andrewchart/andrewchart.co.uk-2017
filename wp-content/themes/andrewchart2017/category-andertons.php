@@ -9,12 +9,12 @@
 <header class="page-hero-header">
 
   <div class="hero-image-container"
-    data-hero-image-xl="<?php echo wp_get_attachment_image_src(58, 'uncropped_xl')[0]; ?>"
-    data-hero-image-l="<?php echo wp_get_attachment_image_src(58, 'uncropped_l')[0]; ?>"
-    data-hero-image-m="<?php echo wp_get_attachment_image_src(58, 'uncropped_m')[0]; ?>"
-    data-hero-image-s="<?php echo wp_get_attachment_image_src(58, 'uncropped_s')[0]; ?>">
+    data-hero-image-xl="<?php echo wp_get_attachment_image_src(238, 'uncropped_xl')[0]; ?>"
+    data-hero-image-l="<?php echo wp_get_attachment_image_src(238, 'uncropped_l')[0]; ?>"
+    data-hero-image-m="<?php echo wp_get_attachment_image_src(238, 'uncropped_m')[0]; ?>"
+    data-hero-image-s="<?php echo wp_get_attachment_image_src(238, 'uncropped_s')[0]; ?>">
     <div class="hero-fullres-container"></div>
-    <div class="hero-placeholder-container" style="background-image: url('<?php echo wp_get_attachment_image_src(58, 'uncropped_tiny')[0]; ?>')"></div>
+    <div class="hero-placeholder-container" style="background-image: url('<?php echo wp_get_attachment_image_src(238, 'uncropped_tiny')[0]; ?>')"></div>
   </div>
 
   <div class="vignette"></div>
@@ -42,7 +42,7 @@
     <li>
       <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
         <div class="main-tile-part">
-          <img src="<?php the_post_thumbnail_url('sixteennine_s'); ?>" />
+          <?php echo accouk_post_tile_image(); ?>
           <span><h3><?php the_title(); ?></h3></span>
         </div>
         <div class="sub-tile-part">

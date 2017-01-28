@@ -141,7 +141,7 @@ textarea {
 }
 
 .site-header__home .summary-text {
-  padding: 0 2em 1em;
+  padding: 0 5% 1em;
   font-weight: 400;
 }
 
@@ -226,6 +226,33 @@ textarea {
   text-align: center;
   color: #aaa;
 }
+
+.site-footer .social-links {
+  margin-top: 0.35em;
+}
+
+.site-footer .social-links a {
+  text-indent: -100px;
+  display: inline-block;
+  overflow: hidden;
+  width: 1.4em;
+  height: 1.4em;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.site-footer .social-links a:first-of-type {
+  margin-right: 0.5em;
+}
+
+.site-footer .social-links .twitter {
+  background-image: url('img/twitter.gif');
+}
+
+.site-footer .social-links .linkedin {
+  background-image: url('img/linkedin.gif');
+}
+
 
 /* NAV */
 .nav-container {
@@ -846,6 +873,7 @@ body.nav-open .nav-overlay {
 .post-list li a .main-tile-part > img {
   display: block;
   width: 100%;
+  min-height: 150px;
 }
 
 .post-list li a .main-tile-part > span {
@@ -1134,6 +1162,10 @@ body.nav-open .nav-overlay {
     margin: 0 1.5% 1.5em;
   }
 
+  .post-list li a .main-tile-part > span > h3 {
+    font-size: 1.5em;
+  }
+
   .post-list li a .sub-tile-part {
     border: 1px solid #ececec;
     margin-top: 0;
@@ -1217,6 +1249,9 @@ body.nav-open .nav-overlay {
     justify-content: flex-end;
   }
 
+  .above-fold__home {
+    text-align: left;
+  }
 
   .site-header .main-nav {
     width: auto;
@@ -1313,7 +1348,7 @@ body.nav-open .nav-overlay {
   }
 
   .main-nav.overlays-hero > ul > li > ul.children > li {
-    background-color: rgba(243,243,243,0.75);
+    background-color: rgba(243,243,243,0.8);
   }
 
   .main-nav.overlays-hero > ul > li > a:active,
@@ -1340,7 +1375,14 @@ body.nav-open .nav-overlay {
   }
 
   .site-header__home .headline-text {
-    margin-top: 1em;
+    margin: 1em 5% 0.3em;
+    position: relative;
+    top: 40px;
+  }
+
+  .site-header__home .summary-text {
+    position: relative;
+    top: 40px;
   }
 
 
@@ -1370,98 +1412,21 @@ body.nav-open .nav-overlay {
 
 
   /* Category Pages */
+  .post-list li a .main-tile-part > span > h3 {
+    font-size: 1.8em;
+  }
+
   .post-list li a .sub-tile-part .excerpt {
     font-size: 1em;
   }
 
 }
 
-/* Minor breakpoint 768 x 600*/
-@media screen and (min-width: 768px) and (min-height: 600px) {
-
-  /* Homepage post list */
-  .latest-posts {
-    position: absolute;
-    bottom: 70px;
-    height: 51%;
-    width: 46%;
-    left: 2%;
-  }
-
-  .main-content.homepage-content .latest-posts h5 {
-    margin: 0 0 0.7em;
-    color: #ffea47;
-  }
-
-  .latest-posts .post-list.homepage-post-list {
-    height: 79%;
-    margin-top: 0;
-  }
-
-  .latest-posts .post-list.homepage-post-list li {
-    margin: 0 0 2%;
-    width: 100%;
-    height: 22.5%;
-    border: 0;
-    background: transparent;
-  }
-
-  .latest-posts .post-list.homepage-post-list li:hover {
-    background-color: rgba(244, 44, 0, 0.8);
-    box-shadow: 3px 3px 6px rgba(144, 21, 0, 0.4);
-  }
-
-  .latest-posts .post-list.homepage-post-list li a .main-tile-part {
-    height: 100%;
-  }
-
-  .latest-posts .post-list.homepage-post-list li a .main-tile-part img {
-    height: 100%;
-    width: auto;
-    float: left;
-  }
-
-  .latest-posts .post-list.homepage-post-list li a .main-tile-part span {
-    position: static;
-    display: inline;
-    overflow: hidden;
-    background: none;
-  }
-
-  .latest-posts .post-list.homepage-post-list li a .main-tile-part span h3 {
-    font-size: 1em;
-    text-align: left;
-    position: relative;
-    top: 0;
-    padding: 0.6% 2%;
-    transform: none;
-    text-shadow: none;
-    margin-right: 0;
-    left: 2.5%;
-  }
-
-  .latest-posts .post-list.homepage-post-list li a .sub-tile-part {
-    display: none;
-  }
-
-  .latest-posts .read-more-blog {
-    margin-top: 0.5em;
-  }
-
-  .latest-posts .read-more-blog a {
-    color: #fff;
-  }
-
-  .latest-posts .read-more-blog a:hover {
-    color: #ffea47;
-  }
-
-}
-
-
 /* Minor breakpoint 1024 */
 @media screen and (min-width: 1024px) {
-  .site-header .main-nav { margin: 0 1em; }
 
+  .site-header .main-nav {
+    margin: 0 1em;
+  }
 
 }
