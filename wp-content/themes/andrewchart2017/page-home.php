@@ -27,7 +27,7 @@
       <li>
         <a href="<?php echo site_url('my-work/andertons'); ?>" title="Andertons">
           <div class="main-tile-part">
-            <img src="<?php echo wp_get_attachment_image_src(58, 'sixteennine_s')[0]; ?>" />
+            <img src="<?php echo wp_get_attachment_image_src(238, 'sixteennine_s')[0]; ?>" />
             <span><h3>Andertons Music Co.</h3></span>
           </div>
         </a>

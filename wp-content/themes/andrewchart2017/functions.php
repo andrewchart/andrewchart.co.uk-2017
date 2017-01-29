@@ -29,6 +29,10 @@ function accouk_display_post_content() {
       include_once('templates/post-portfolio.php');
       break;
 
+    case 'portfolio-item-with-hero':
+      include_once('templates/post-portfolio-with-hero.php');
+      break;
+
     case 'default':
       include_once('templates/post-default.php');
       break;
@@ -176,7 +180,7 @@ function accouk_post_tile_image() {
     }
 
     return '<img style="background-color: ' . $col . '" src="img/a/default-thumbnail.png" />';
-    
+
   } else {
     return '<img src="'.$thumb.'" />';
   }
