@@ -105,6 +105,11 @@ textarea {
   display: flex;
 }
 
+.no-flexbox .above-fold__home {
+  display: block;
+  min-height: 385px;
+}
+
 .site-header {
   background-color: #ff2f00;
   color: #fff;
@@ -134,6 +139,13 @@ textarea {
   flex-direction: column;
 }
 
+.no-flexbox .site-header__home {
+  display: block;
+  position: relative;
+  height: 90%;
+  height: calc(100% - 51px);
+}
+
 .site-header__home .headline-text {
   font-size: 3em;
   line-height: 120%;
@@ -154,6 +166,44 @@ textarea {
   flex-grow: 10;
   background-image: url('img/a/homepage-logo-centered.png');
   background-position: center bottom;
+}
+
+.no-flexbox .site-header__home .logo {
+  height: 50%;
+  top: auto;
+  bottom: -4px;
+  position: absolute;
+  max-width: none;
+}
+
+@media screen and (min-width: 378px) {
+  .no-flexbox .site-header__home {
+    border-bottom: 7px solid #000;
+  }
+
+  .no-flexbox .site-header__home .logo {
+    bottom: -7px;
+  }
+}
+
+@media screen and (min-width: 555px) {
+  .no-flexbox .site-header__home {
+    border-bottom: 10px solid #000;
+  }
+
+  .no-flexbox .site-header__home .logo {
+    bottom: -10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .no-flexbox .site-header__home {
+    border-bottom: 14px solid #000;
+  }
+
+  .no-flexbox .site-header__home .logo {
+    bottom: -14px;
+  }
 }
 
 .site-header .menu-button {
@@ -180,6 +230,13 @@ textarea {
   background-color: #fff;
   z-index: 1;
 }
+
+@media screen and (max-height: 385px) {
+  .no-flexbox .above-fold__home .see-more {
+    display: none;
+  }
+}
+
 
 .above-fold__home .see-more .scroll-down {
   font-size: 2em;
@@ -392,6 +449,11 @@ body.nav-open .nav-overlay {
   justify-content: space-between;
 }
 
+.no-flexbox .main-nav .search-form {
+  display: block;
+  padding: 9px 0 14px 14px;
+}
+
 .main-nav .search-form label {
   margin-right: 1em;
   line-height: 200%;
@@ -412,6 +474,11 @@ body.nav-open .nav-overlay {
   border: 0;
   color: #aaa;
   -webkit-appearance: none;
+}
+
+.no-flexbox .main-nav .search-form .search-icon {
+  top: 5px;
+  position: relative;
 }
 
 .main-nav .search-form .search-icon:active {
@@ -1057,6 +1124,9 @@ body.nav-open .nav-overlay {
   justify-content: space-around;
 }
 
+.no-flexbox .main-content.page404-content .search-form {
+  display: block;
+}
 
 
 .main-content.page404-content .search-form label {
@@ -1070,12 +1140,21 @@ body.nav-open .nav-overlay {
   flex-grow: 10;
 }
 
+.no-flexbox .main-content.page404-content .search-form .search-box {
+  width: 50%;
+}
+
 .main-content.page404-content .search-form .search-icon {
   padding: 0 0.4em;
   cursor: pointer;
   -webkit-appearance: none;
   background: none;
   border: 0;
+}
+
+.no-flexbox .main-content.page404-content .search-form .search-icon {
+  top: 6px;
+  position: relative;
 }
 
 .main-content.page404-content .search-form .search-icon:hover {
@@ -1166,10 +1245,26 @@ body.nav-open .nav-overlay {
     flex-wrap: wrap;
   }
 
+  .no-flexbox .post-list {
+    display: block;
+  }
+
   .post-list li {
     background-color: #f7f7f7;
     width: 47%;
     margin: 0 1.5% 1.5em;
+  }
+
+  .no-flexbox .post-list li {
+    float: left;
+  }
+
+  .no-flexbox .post-list:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    clear: both;
   }
 
   .post-list li a .main-tile-part > span > h3 {
@@ -1218,6 +1313,20 @@ body.nav-open .nav-overlay {
     justify-content: space-between;
   }
 
+  .no-flexbox .site-header {
+    display: block;
+    z-index: 10;
+    position: relative;
+  }
+
+  .no-flexbox .site-header:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    clear: both;
+  }
+
   .site-header .menu-button-area {
     display: none;
   }
@@ -1226,6 +1335,11 @@ body.nav-open .nav-overlay {
     text-align: left;
     width: auto;
     margin-right: 1em;
+  }
+
+  .site-header__slim .logo {
+    display: inline-block;
+    float: left;
   }
 
   .site-header__slim .logo a {
@@ -1241,6 +1355,10 @@ body.nav-open .nav-overlay {
     max-width: none;
   }
 
+  .no-flexbox .site-header__home .logo {
+    height: 70%;
+  }
+
   .site-header .nav-overlay {
     display: none;
   }
@@ -1249,6 +1367,12 @@ body.nav-open .nav-overlay {
     width: auto;
     position: static;
     transform: translateX(0);
+  }
+
+  .no-flexbox .site-header .nav-container {
+    display: inline-block;
+    float: right;
+    position: relative;
   }
 
   .site-header__home .nav-container {
@@ -1275,15 +1399,23 @@ body.nav-open .nav-overlay {
     display: flex;
   }
 
+  .no-flexbox .site-header .main-nav {
+    display: block;
+  }
+
   .site-header .main-nav .dismiss {
     display: none;
   }
 
-  .site-header .main-nav ul {
+  .site-header .main-nav > ul {
     border: 0;
     height: 100%;
 
     display: flex;
+  }
+
+  .no-flexbox .site-header .main-nav > ul {
+    display: block;
   }
 
   .site-header .main-nav .home-item {
@@ -1296,12 +1428,16 @@ body.nav-open .nav-overlay {
     line-height: 200%;
   }
 
+  .no-flexbox .site-header .main-nav > ul > li {
+    float: left;
+  }
+
   .site-header .main-nav li a {
     color: #fff;
   }
 
-  .site-header .main-nav li:hover > a,
-  .site-header .main-nav li:hover > a {
+  .site-header .main-nav > ul > li:hover > a,
+  .site-header .main-nav > ul > li:active > a {
     color: #ffea47;
     background: transparent;
   }
@@ -1359,7 +1495,7 @@ body.nav-open .nav-overlay {
 
   .main-nav.overlays-hero > ul > li > a:active,
   .main-nav.overlays-hero > ul > li > ul.children > li > a:hover {
-    background-color: rgba(222,222,222,0.6);
+    background-color: rgba(212,212,212,0.6);
   }
 
   .site-header .search-form {
@@ -1379,6 +1515,10 @@ body.nav-open .nav-overlay {
     cursor: pointer;
   }
 
+  .no-flexbox  .site-header .search-form .search-icon {
+    top: 8px;
+  }
+
   .site-header .search-form .search-icon:hover,
   .site-header .search-form .search-icon:active {
     color: #ffea47;
@@ -1390,11 +1530,19 @@ body.nav-open .nav-overlay {
     top: 40px;
   }
 
+  .no-flexbox .site-header__home .headline-text {
+    margin-top: 0;
+    clear: both;
+  }
+
   .site-header__home .summary-text {
     position: relative;
     top: 40px;
   }
 
+  .no-flexbox .site-header__home .summary-text {
+
+  }
 
   /* Post Content */
   .page-hero-header .post-title-area .title-column {
