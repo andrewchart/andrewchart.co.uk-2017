@@ -4,7 +4,6 @@
 		<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <base href="<?php echo get_template_directory_uri(); ?>/" />
-    <link rel="shortcut icon" href="img/f.png" type="image/x-icon" />
 
 		<!-- Google Tag Manager -->
 		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -14,13 +13,24 @@
 		})(window,document,'script','dataLayer','GTM-5NNT7B');</script>
 		<!-- End Google Tag Manager -->
 
+		<!-- Detect flexbox -->
+		<script>
+		var doc = document.body || document.documentElement;
+		var style = doc.style;
+		if (!(style.webkitFlexWrap == '' || style.msFlexWrap == '' || style.flexWrap == '')) {
+				doc.className += (doc.className === "" ? "" : " ") + "no-flexbox";
+		};
+		</script>
+		<!-- End Detect Flexbox -->
+
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 		<link rel="stylesheet" href="css/prism.css" />
+		<link rel="shortcut icon" href="img/f.png" type="image/x-icon" />
 
-    <?php wp_head(); ?>
+		<?php wp_head(); ?>
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 	<body>

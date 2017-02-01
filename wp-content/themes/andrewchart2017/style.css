@@ -400,7 +400,7 @@ body.nav-open .nav-overlay {
 .main-nav .search-form .search-box {
   font-size: 1em;
   padding: 0.3em 0.4em;
-  width: 80%;
+  width: 50%;
 
   flex-grow: 10;
 }
@@ -1057,6 +1057,8 @@ body.nav-open .nav-overlay {
   justify-content: space-around;
 }
 
+
+
 .main-content.page404-content .search-form label {
   margin: 0 0.7em 0 1em;
   line-height: 2.38em;
@@ -1438,6 +1440,10 @@ body.nav-open .nav-overlay {
     margin: 0 1em;
   }
 
+  .main-nav .search-form .search-box {
+    width: 190px;
+  }
+
 }
 
 /* Minor breakpoint 768 x 800 (portrait large tablet) */
@@ -1477,11 +1483,11 @@ body.nav-open .nav-overlay {
   }
 
   .site-header__home .headline-text {
-    font-size: 5.2em;
+    font-size: 5em;
   }
 
   .site-header__home .summary-text {
-    font-size: 1.8em;
+    font-size: 1.7em;
   }
 
 
