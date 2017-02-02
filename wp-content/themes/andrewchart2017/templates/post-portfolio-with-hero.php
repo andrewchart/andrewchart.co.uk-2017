@@ -30,11 +30,6 @@
 
   <?php pBr(the_content()); ?>
 
-  <?php if(!empty(types_render_field('listening-to')))
-          include_once('listening-to.php'); ?>
-
   <?php include_once('end-post-nav.php'); ?>
-
-  <?php include_once('comments.php'); ?>
 
 </section>

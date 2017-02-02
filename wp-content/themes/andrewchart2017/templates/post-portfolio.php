@@ -13,11 +13,6 @@
 
   <?php pBr(the_content()); ?>
 
-  <nav class="end-post-nav my-work-end-post-nav">
-    <?php $cats = get_the_category(); ?>
-    <a class="back-to-category" href="<?php echo get_category_link($cats[0]); ?>">
-      Return to &ldquo;<?php echo $cats[0]->cat_name; ?>&rdquo;
-    </a>
-  </nav>
+  <?php include_once('end-post-nav.php'); ?>
 
 </section>
