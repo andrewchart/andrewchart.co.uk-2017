@@ -31,6 +31,9 @@
 		<link rel="shortcut icon" href="img/f.png" type="image/x-icon" />
 
 		<?php wp_head(); ?>
+
+		<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/img/a/default-thumbnail-colour.png" />
+
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 	<body>
