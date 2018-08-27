@@ -22,9 +22,9 @@
   <section class="post-title-area">
     <div class="title-column">
       <h1><?php single_cat_title(); ?></h1>
-      <section class="excerpt"><p>As the head of the digital team, I have supported
-        the growth of this family musical instrument retailer into a multi-million
-        pound, international brand.</p></section>
+      <section class="excerpt"><p>As the head of the e-commerce &amp; digital marketing
+        team, I have supported the growth of this family musical instrument retailer
+        into a multi-million pound, international brand.</p></section>
     </div>
   </section>
 
