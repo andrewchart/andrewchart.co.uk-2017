@@ -215,7 +215,7 @@ function accouk_contact_form_handler() {
     $headers .= 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
-    $mailsent = mail($to, $subject, $html, $headers);
+    $mailsent = wp_mail($to, $subject, $html, $headers);
 
     if(!$mailsent) {
       $prompt = "<p class='error'>Sorry, your email couldn't be sent. Please try again.</p>";
