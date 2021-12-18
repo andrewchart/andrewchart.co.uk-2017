@@ -9,10 +9,10 @@
 <section class="main-content homepage-content">
 
   <h3 class="homepage-copy-heading">Hi, I'm Andrew.</h3>
-  <p>I'm based in Surrey, South East England, and I
-    work as the Head of E-commerce for one of the UK's
-    most exciting retail brands. I'm also a keen runner
-    and musician.</p>
+  <p>I'm a digital marketing and technology professional, based 
+     in Surrey, South East England. I'm currently working
+     as a delivery manager on large scale technology projects.
+     I am also a keen runner and musician.</p>
 
   <section class="latest-posts">
     <h5>Latest Blog Posts</h5>
