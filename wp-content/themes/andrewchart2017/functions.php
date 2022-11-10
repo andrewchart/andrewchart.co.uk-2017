@@ -133,7 +133,7 @@ add_action( 'pre_get_posts', 'accouk_mywork_andertons_rpp' );
 /* 6) Render latest posts on homepage */
 function accouk_homepage_latest_posts() {
 
-  $args = array('post_type' => 'post', 'category__not_in' => 7, 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC');
+  $args = array('post_type' => 'post', 'category_name' => 'blog', 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC');
   $query = new WP_Query( $args );
 
   if ( $query->have_posts() ) {
