@@ -143,7 +143,7 @@ function accouk_guitar_tab($atts) {
 
   // Only show download link if the text file is valid and the user has specified the link
   if($valid_text_file && $a['download'] === "yes") {
-    $downloadable  = true;
+    $downloadable = true;
     $file_path_relative = $a['file'];
   }
 

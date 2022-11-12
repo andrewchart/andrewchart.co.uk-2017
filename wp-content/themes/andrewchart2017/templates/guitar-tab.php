@@ -10,7 +10,7 @@
        <span class="error">Error, could not display guitar tab</span>
     <?php endif ?>
 </article>
-<?php if($downloadable === true && strlen($download_path) > 0) : ?>
+<?php if($downloadable === true && strlen($file_path_relative) > 0) : ?>
     <div class="guitar-tab-download-link">
         Difficult to read?<br />
         <a download href="<?= $file_path_relative ?>">Download raw text version</a></div>
