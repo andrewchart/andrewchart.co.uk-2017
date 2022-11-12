@@ -88,7 +88,38 @@ textarea {
   color: #c00;
 }
 
+.font-size-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #ddd;
+  text-align: right;
+}
 
+.font-size-controls label {
+  flex-grow: 1;
+  margin: 2px 0.7em 0 0.6em;
+  color: #333;
+  text-align: left;
+}
+
+.font-size-controls button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 2em;
+  color: #111;
+}
+
+.font-size-controls button:hover {
+  background-color: #ffea47;
+}
 
 
 /* HEADERS */
@@ -668,13 +699,16 @@ body.nav-open .nav-overlay {
 }
 
 .main-content.post-content article.guitar-tab {
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  position: relative;
   font-size: 0.8em;
   background-color: #eee;
   padding: 1.2em 0.8em 1.3em;
 }
 
 .main-content.post-content article.guitar-tab pre {
+  margin-top: 40px;
+  padding-bottom: 16px;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   white-space: pre;
   overflow: auto;
   line-height: 1.35;
@@ -1264,6 +1298,11 @@ body.nav-open .nav-overlay {
 
 /* Minor breakpoint: 580 */
 @media screen and (min-width: 580px) {
+
+  .font-size-controls label {
+    margin-top: 3px;
+  }
+
   .site-header__home {
     border-bottom: 10px solid #000;
   }
@@ -1328,6 +1367,14 @@ body.nav-open .nav-overlay {
 
   .main-content.post-content article.guitar-tab {
     font-size: 0.9em;
+  }
+
+  .main-content.post-content article.guitar-tab .font-size-controls {
+    width: auto;
+  }
+
+  .main-content.post-content article.guitar-tab pre {
+    margin-top: 0;
   }
 
   .main-content.post-content .guitar-tab-download-link {

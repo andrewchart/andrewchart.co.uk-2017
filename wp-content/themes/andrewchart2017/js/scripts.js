@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   //Mobile slide in menu
-  $('.site-header .menu-button, .main-nav .dismiss .close-icon, .nav-overlay').on('click', function(e){
+  $('.site-header .menu-button, .main-nav .dismiss .close-icon, .nav-overlay').on('click', function(){
     $('.nav-container').toggleClass('open');
     $('body').toggleClass('nav-open');
   });
@@ -104,6 +104,27 @@ $(document).ready(function(){
     $(window).on('scroll', scrollFunc);
 
   }
+
+  /* Font Resizing Controls */
+  $('.font-size-controls button').on('click', function(){
+
+    let targetEl = $(this).parent().siblings('.font-size-resizeable');
+    let oldValue = targetEl.data('zoom-percent');
+    let newValue;
+
+    // Deal with undefined or non int zoom value by setting to 100%
+    if(isNaN(parseInt(oldValue))) oldValue = 100;
+   
+    if($(this).hasClass('font-size-decrease')) newValue = oldValue - 15;
+    if($(this).hasClass('font-size-increase')) newValue = oldValue + 15;
+
+    // Limit zoom amount
+    if (newValue < 20 || newValue > 500) return;
+    
+    // Set new sizing
+    targetEl.css('font-size', newValue + "%").data('zoom-percent', newValue);
+
+  });
 
 });
 
