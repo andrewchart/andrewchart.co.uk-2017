@@ -669,8 +669,9 @@ body.nav-open .nav-overlay {
 
 .main-content.post-content article.guitar-tab {
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.8em;
   background-color: #eee;
-  padding: 1em 0.8em;
+  padding: 1.2em 0.8em 1.3em;
 }
 
 .main-content.post-content article.guitar-tab pre {
@@ -681,13 +682,12 @@ body.nav-open .nav-overlay {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
-  margin-bottom: 1em;
 }
 
 .main-content.post-content .guitar-tab-download-link {
   text-align: right;
   color:#888;
-  font-size: 0.9em;
+  font-size: 0.8em;
   line-height: 150%;
   padding-top: 0.7em;
 }
@@ -1326,6 +1326,14 @@ body.nav-open .nav-overlay {
     display: inline;
   }
 
+  .main-content.post-content article.guitar-tab {
+    font-size: 0.9em;
+  }
+
+  .main-content.post-content .guitar-tab-download-link {
+    font-size: 0.85em;
+  }
+
   .main-content.post-content .end-post-nav .tags {
     float: right;
     margin: 0;
@@ -1606,6 +1614,13 @@ body.nav-open .nav-overlay {
     margin-top: 1.5em;
   }
 
+  .main-content.post-content article.guitar-tab {
+    font-size: 1em;
+  }
+
+  .main-content.post-content .guitar-tab-download-link {
+    font-size: 0.9em;
+  }
 
 
   /* Category Pages */
