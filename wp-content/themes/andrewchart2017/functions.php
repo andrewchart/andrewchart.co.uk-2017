@@ -124,28 +124,27 @@ function accouk_post_excerpt() {
 function accouk_guitar_tab($atts) {
 
   $tab_content = '';
+  $file_path_relative = '';
+  $file_path_full = '';
   $downloadable = false;
-  $download_path = '';
 
   $a = shortcode_atts(array(
     'file' => null,
 		'download' => null
 	), $atts);
 
-  $valid_text_file = accouk_is_valid_text_file($a['file']);
+  $file_path_full = $_SERVER['DOCUMENT_ROOT'] . "/" . $a['file'];
+  $valid_text_file = accouk_is_valid_text_file($file_path_full);
 
   // Only process the file contents if we're confident it's a .txt file
   if($valid_text_file === true) {
-    ob_start();
-    include_once($_SERVER['DOCUMENT_ROOT'] . "/" . $a['file']);
-    $tab_content = ob_get_contents();
-    ob_end_clean();
+    $tab_content = file_get_contents($file_path_full);
   }
 
   // Only show download link if the text file is valid and the user has specified the link
   if($valid_text_file && $a['download'] === "yes") {
     $downloadable  = true;
-    $download_path = $a['file'];
+    $file_path_relative = $a['file'];
   }
 
   // Output with template
@@ -160,6 +159,16 @@ add_shortcode( 'guitar_tab', 'accouk_guitar_tab' );
 
 /* 4a) Make sure that all that can be rendered or downloaded is valid .txt files */
 function accouk_is_valid_text_file($path) {
+
+  // Use finfo to detect mime type
+  $finfo = finfo_open(FILEINFO_MIME_TYPE);
+  $mime = finfo_file($finfo, $path);
+  finfo_close($finfo);
+  if($mime !== "text/plain") return false;
+
+  // Check file extension
+  $filename_length = strlen($path);
+  if(substr($path, $filename_length-4, $filename_length) !== ".txt") return false;
 
   return true;
 }

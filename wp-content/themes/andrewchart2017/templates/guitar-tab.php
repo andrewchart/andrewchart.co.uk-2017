@@ -7,12 +7,12 @@
         </div>
         <pre class="font-size-resizeable"><?= $tab_content ?></pre>
     <?php else: ?>
-       <span class="error">Error, could not display guitar tab</span>';
+       <span class="error">Error, could not display guitar tab</span>
     <?php endif ?>
 </article>
 <?php if($downloadable === true && strlen($download_path) > 0) : ?>
     <div class="guitar-tab-download-link">
         Difficult to read?<br />
-        <a download href="<?= $download_path ?>">Download raw text version</a></div>
+        <a download href="<?= $file_path_relative ?>">Download raw text version</a></div>
     </div>
 <?php endif ?>
