@@ -120,6 +120,50 @@ function accouk_post_excerpt() {
   }
 }
 
+/* 4) Guitar Tab Formatting and Download */
+function accouk_guitar_tab($atts) {
+
+  $tab_content = '';
+  $downloadable = false;
+  $download_path = '';
+
+  $a = shortcode_atts(array(
+    'file' => null,
+		'download' => null
+	), $atts);
+
+  $valid_text_file = accouk_is_valid_text_file($a['file']);
+
+  // Only process the file contents if we're confident it's a .txt file
+  if($valid_text_file === true) {
+    ob_start();
+    include_once($_SERVER['DOCUMENT_ROOT'] . "/" . $a['file']);
+    $tab_content = ob_get_contents();
+    ob_end_clean();
+  }
+
+  // Only show download link if the text file is valid and the user has specified the link
+  if($valid_text_file && $a['download'] === "yes") {
+    $downloadable  = true;
+    $download_path = $a['file'];
+  }
+
+  // Output with template
+  ob_start();
+  include_once('templates/guitar-tab.php');
+  $element = ob_get_contents();
+  ob_end_clean();
+
+	return $element;
+}
+add_shortcode( 'guitar_tab', 'accouk_guitar_tab' );
+
+/* 4a) Make sure that all that can be rendered or downloaded is valid .txt files */
+function accouk_is_valid_text_file($path) {
+
+  return true;
+}
+
 
 /* 5) Unlimited posts per page on category "andertons" */
 function accouk_mywork_andertons_rpp($query) {

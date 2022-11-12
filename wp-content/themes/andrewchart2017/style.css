@@ -667,6 +667,31 @@ body.nav-open .nav-overlay {
   vertical-align: top;
 }
 
+.main-content.post-content article.guitar-tab {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  background-color: #eee;
+  padding: 1em 0.8em;
+}
+
+.main-content.post-content article.guitar-tab pre {
+  white-space: pre;
+  overflow: auto;
+  line-height: 1.35;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+  margin-bottom: 1em;
+}
+
+.main-content.post-content .guitar-tab-download-link {
+  text-align: right;
+  color:#888;
+  font-size: 0.9em;
+  line-height: 150%;
+  padding-top: 0.7em;
+}
+
 .main-content.post-content footer.listening-to {
   font-weight: normal;
   border-top: 2px solid #ddd;
