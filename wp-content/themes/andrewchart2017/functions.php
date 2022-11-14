@@ -245,12 +245,16 @@ function accouk_contact_form_handler() {
 
   if(isset($_POST['message'])):
 
+    $ini = parse_ini_file('forms/contact-form.ini');
+
     $name = $_POST['your_name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
+    $to = $ini['TO_EMAIL'];
+    $recaptcha_secret = $ini['RECAPTCHA_SECRET'];
 
     //Check recaptcha is OK
-    if( ! reCaptchaOk($_POST['g-recaptcha-response']) ) {
+    if( ! reCaptchaOk($recaptcha_secret, $_POST['g-recaptcha-response']) ) {
       $prompt = "<p class='error'>Sorry, you're a very lovely ROBOT. Please try again.</p>";
       include_once('forms/contact-form.php');
       return;
@@ -288,14 +292,14 @@ function accouk_contact_form_handler() {
 }
 
 /* 7) Check Recaptcha Response */
-function reCaptchaOk($response) {
+function reCaptchaOk($secret, $response) {
 
   //cURL api
   $ch = curl_init();
-  curl_setopt($ch,CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+  curl_setopt($ch, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch,CURLOPT_POST, 2);
-  curl_setopt($ch,CURLOPT_POSTFIELDS, "secret=6Lcd5Q4UAAAAADhwp5umjPCmnFg7RUxhnXCIUO53&response=$response");
+  curl_setopt($ch, CURLOPT_POST, 2);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, "secret=$secret&response=$response");
 
   $result = json_decode(curl_exec($ch));
 

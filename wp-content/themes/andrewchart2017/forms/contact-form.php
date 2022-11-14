@@ -19,7 +19,7 @@
   </div>
 
   <div class="submit-area">
-    <div class="g-recaptcha" data-sitekey="6Lcd5Q4UAAAAANNn8QZhqJ-LLVYGu2WFjFKc3MNB"></div>
+    <div class="g-recaptcha" data-sitekey="6LdzEgkjAAAAAJudHAZP46uCyDrn1jQSmjwt1AZx"></div>
     <button class="button button__primary" type="submit" />Send</button>
   </div>
 
