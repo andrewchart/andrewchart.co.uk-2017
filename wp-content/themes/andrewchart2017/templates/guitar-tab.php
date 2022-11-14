@@ -12,7 +12,8 @@
 </article>
 <?php if($downloadable === true && strlen($file_path_relative) > 0) : ?>
     <div class="guitar-tab-download-link">
-        Difficult to read?<br />
-        <a download href="<?= $file_path_relative ?>">Download raw text version</a></div>
+        Hard to read? Raw text:
+        <a target="_blank" href="<?= $file_path_relative ?>">Open</a> | 
+        <a download href="<?= $file_path_relative ?>">Download</a>
     </div>
 <?php endif ?>
