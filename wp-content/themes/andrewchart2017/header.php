@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <base href="<?php echo get_template_directory_uri(); ?>/" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+		<base href="<?php echo get_template_directory_uri(); ?>/" />
 
 		<!-- Google Tag Manager -->
 		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -23,10 +23,10 @@
 		</script>
 		<!-- End Detect Flexbox -->
 
-    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:400" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+		<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oswald:400" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="style.css" />
 		<link rel="stylesheet" href="css/prism.css" />
 		<link rel="shortcut icon" href="img/f.png" type="image/x-icon" />
 
@@ -48,42 +48,35 @@
 		}(document, 'script', 'facebook-jssdk'));</script>
 		<!-- End Facebook Javascript SDK -->
 
-    <?php if(!is_front_page()): ?>
-    <header class="site-header site-header__slim">
+		<?php if(!is_front_page()): ?>
 
-      <div class="logo">
-        <a href="<?php echo home_url(); ?>" title="Home">Andrew Chart</a>
-      </div>
+			<header class="site-header site-header__slim">
+				<div class="logo">
+					<a href="<?php echo home_url(); ?>" title="Home">Andrew Chart</a>
+				</div>
 
-      <div class="menu-button-area">
-        <button class="button menu-button">Menu</button>
-      </div>
-
-			<?php include_once('nav.php'); ?>
-
-
-    </header>
-
-    <?php else: ?>
-
-    <div class="above-fold__home">
-      <header class="site-header site-header__home">
-
-        <div class="menu-button-area">
-          <button class="button menu-button">Menu</button>
-        </div>
+				<div class="menu-button-area">
+					<button class="button menu-button">Menu</button>
+				</div>
 
 				<?php include_once('nav.php'); ?>
+		    </header>
 
-        <?php the_content(); ?>
+	    <?php else: ?>
 
-        <div class="logo"></div>
+		    <div class="above-fold__home">
+				<header class="site-header site-header__home">
+					<div class="menu-button-area">
+						<button class="button menu-button">Menu</button>
+					</div>
 
+					<?php include_once('nav.php'); ?>
 
+					<?php the_content(); ?>
 
-      </header>
-
-      <div class="see-more"><button class="material-icons scroll-down">expand_more</button></div>
-    </div>
-
-    <?php endif; ?>
+					<div class="logo"></div>
+		    	</header>
+	      		<div class="see-more"><button class="material-icons scroll-down">expand_more</button></div>
+    		</div>
+			
+	    <?php endif; ?>
