@@ -185,12 +185,6 @@ function accouk_youtube_embed($atts) {
   // Dumb validation of youtube ID
   if(strlen($yt_id) !== 11) return;
 
-  // Add the YouTube Iframe API Javascript to the footer of the page
-  add_action('wp_footer', 'youtube_js');
-
-  // Var to track number of videos on the page
-  if(!isset($GLOBALS['youtube_videos_on_page'])) $GLOBALS['youtube_videos_on_page'] = 0;
-   
   // Output with template
   ob_start();
   include('templates/youtube-video.php');
@@ -200,10 +194,6 @@ function accouk_youtube_embed($atts) {
 	return $element;
 }
 add_shortcode( 'youtube', 'accouk_youtube_embed' );
-
-function youtube_js() {
-  echo '<script src="js/youtube.js"></script>'. "\n  ";
-}
 
 
 /* 5) Unlimited posts per page on category "andertons" */
