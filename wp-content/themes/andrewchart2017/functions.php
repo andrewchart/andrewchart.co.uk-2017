@@ -149,7 +149,7 @@ function accouk_guitar_tab($atts) {
 
   // Output with template
   ob_start();
-  include_once('templates/guitar-tab.php');
+  include('templates/guitar-tab.php');
   $element = ob_get_contents();
   ob_end_clean();
 
@@ -171,6 +171,38 @@ function accouk_is_valid_text_file($path) {
   if(substr($path, $filename_length-4, $filename_length) !== ".txt") return false;
 
   return true;
+}
+
+/* 5) YouTube Video Embed */
+function accouk_youtube_embed($atts) {
+
+  $a = shortcode_atts(array(
+    'id' => null
+	), $atts);
+
+  $yt_id = $a['id'];
+
+  // Dumb validation of youtube ID
+  if(strlen($yt_id) !== 11) return;
+
+  // Add the YouTube Iframe API Javascript to the footer of the page
+  add_action('wp_footer', 'youtube_js');
+
+  // Var to track number of videos on the page
+  if(!isset($GLOBALS['youtube_videos_on_page'])) $GLOBALS['youtube_videos_on_page'] = 0;
+   
+  // Output with template
+  ob_start();
+  include('templates/youtube-video.php');
+  $element = ob_get_contents();
+  ob_end_clean();
+
+	return $element;
+}
+add_shortcode( 'youtube', 'accouk_youtube_embed' );
+
+function youtube_js() {
+  echo '<script src="js/youtube.js"></script>'. "\n  ";
 }
 
 

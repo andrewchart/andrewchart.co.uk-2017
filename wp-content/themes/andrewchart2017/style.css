@@ -657,6 +657,10 @@ body.nav-open .nav-overlay {
   min-height: 380px;
 }
 
+.main-content.post-content iframe.youtube-embed { 
+  margin-bottom: 1em;
+}
+
 .main-content.post-content iframe[src^="https://embed.spotify.com"] {
   height: 80px;
   min-height: 0;
