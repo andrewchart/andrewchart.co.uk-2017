@@ -5,6 +5,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 		<base href="<?php echo get_template_directory_uri(); ?>/" />
 
+		<?php if(accouk_is_dev()) : ?>
+        <!-- Google Analytics: Indicate dev environments -->
+		<script>
+			// Detected in Google Tag Manager to modify traffic_type
+			window.dataLayer = window.dataLayer || [];
+  			window.dataLayer.push({
+    			"is_dev_site": true
+  			});
+		</script>
+		<!-- End Google Analytics: Indicate dev environments -->
+		<?php endif; ?>
+
 		<!-- Google Tag Manager -->
 		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -78,5 +90,5 @@
 		    	</header>
 	      		<div class="see-more"><button class="material-icons scroll-down">expand_more</button></div>
     		</div>
-			
+
 	    <?php endif; ?>

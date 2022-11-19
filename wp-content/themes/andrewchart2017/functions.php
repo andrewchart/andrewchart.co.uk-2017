@@ -333,4 +333,13 @@ function accouk_exclude_pages_from_search_results($query) {
 add_filter('pre_get_posts','accouk_exclude_pages_from_search_results');
 
 
+/* 10 -- Function that returns true in non-prod environments */
+function accouk_is_dev() {
+  if(get_site_url(null,null,'https') === "https://www.andrewchart.co.uk") {
+    return false;
+  } else { 
+    return true;
+  }
+}
+
 ?>
