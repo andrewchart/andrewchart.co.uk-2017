@@ -66,6 +66,22 @@ function accouk_set_global_main_cat() {
 
 }
 
+/* 3) Form the <body> class list */
+function accouk_body_class_list() {
+
+  $class_array = array();
+
+  // Include category slug to style based on category
+  if(is_single() && isset($GLOBALS['main_category'])) {
+    array_push($class_array, "category-" . $GLOBALS['main_category'][slug]);
+  } else if(is_category()) {
+    array_push($class_array, "category-" . get_queried_object()->slug);
+  }
+  
+  return implode(" ", $class_array);
+
+}
+
 /* 3) Display Post Meta Information */
 function accouk_display_post_meta() {
 

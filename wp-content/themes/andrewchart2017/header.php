@@ -48,7 +48,7 @@
 
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
-	<body>
+	<body class="<?php echo accouk_body_class_list(); ?>">
 		<!-- Facebook Javascript SDK -->
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
