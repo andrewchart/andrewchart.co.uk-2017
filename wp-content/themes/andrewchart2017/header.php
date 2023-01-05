@@ -40,6 +40,10 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="style.css" />
 		<link rel="stylesheet" href="css/prism.css" />
+		<?php if(accouk_is_photography_page()) : ?>
+		<link rel="stylesheet" href="css/photography.css" />
+		<?php endif; ?>
+
 		<link rel="shortcut icon" href="img/f.png" type="image/x-icon" />
 
 		<?php wp_head(); ?>

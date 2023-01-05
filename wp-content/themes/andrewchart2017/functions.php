@@ -189,6 +189,18 @@ function accouk_is_valid_text_file($path) {
   return true;
 }
 
+/* 4) Photography category and post pages */
+function accouk_is_photography_page() {
+  if( is_category('photography') || 
+      (isset($GLOBALS['main_category']) && 
+      $GLOBALS['main_category'][slug] === "photography")
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
 /* 5) YouTube Video Embed */
 function accouk_youtube_embed($atts) {
 
@@ -219,6 +231,15 @@ function accouk_mywork_andertons_rpp($query) {
   }
 }
 add_action( 'pre_get_posts', 'accouk_mywork_andertons_rpp' );
+
+
+/* 5) Increased posts per page on category "photography" */
+function accouk_blog_photography_rpp($query) {
+  if (!is_admin() && $query->is_main_query() && is_category('photography')) {
+    $query->set( 'posts_per_page', '20' );
+  }
+}
+add_action( 'pre_get_posts', 'accouk_blog_photography_rpp' );
 
 
 /* 6) Render latest posts on homepage */
@@ -259,8 +280,10 @@ function accouk_homepage_latest_posts() {
 }
 
 /* 7) Echo the post thumbnail image or a default */
-function accouk_post_tile_image() {
-  $thumb = get_the_post_thumbnail_url(null, 'sixteennine_s');
+function accouk_post_tile_image($size = 'sixteennine_s') {
+
+  $thumb = get_the_post_thumbnail_url(null, $size);
+
   if(empty($thumb)) {
 
     $col = "#";
