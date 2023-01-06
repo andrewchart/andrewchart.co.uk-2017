@@ -12,7 +12,8 @@ body.category-photography,
 }
 
 .category-photography .post-list {
-    
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 0;
     gap: 2px;
 }
@@ -55,4 +56,13 @@ body.category-photography,
 .category-photography .pagination a, .pagination span {
     padding: 0.4em 0.8em;
     border: 1px solid #333;
+}
+
+
+@media screen and (min-height: 800px) and (orientation: landscape), (min-height: 1000px) {
+    
+    .category-photography .post-list li {
+        height: 28vh;
+    }
+
 }
