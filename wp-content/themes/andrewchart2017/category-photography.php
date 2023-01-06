@@ -15,7 +15,10 @@
     <li>
       <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
         <div class="main-tile-part">
-          <?php echo accouk_post_tile_image('uncropped_m'); ?>
+          <img 
+            srcset="<?php the_post_thumbnail_url('uncropped_s'); ?> 768w, <?php the_post_thumbnail_url('uncropped_m'); ?> 2560w, <?php the_post_thumbnail_url('uncropped_l'); ?> 3840w"
+            sizes="(max-width: 767px) 33vw, (min-width: 768px) 100vw"
+            src="<?php the_post_thumbnail_url('uncropped_s'); ?>" />
           <span><h3><?php the_title(); ?></h3></span>
         </div>
       </a>

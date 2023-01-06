@@ -19,17 +19,17 @@ body.category-photography,
 }
 
 .category-photography .post-list li {
-    background-color: transparent;
-    width: auto;
-    margin: 0;
-    border-bottom: 0;
-    height: 42vh;
     position: relative;
     flex-grow: 1;
+    background-color: transparent;
+    margin: 0;
+    width: 30vw;
+    height: 30vw;
+    border-bottom: 0;
 }
 
 .category-photography .post-list li:last-child {
-    max-width: 768px;
+    max-width: 50%;
 }
 
 .category-photography .post-list li a,
@@ -59,7 +59,16 @@ body.category-photography,
 }
 
 
-@media screen and (min-height: 800px) and (orientation: landscape), (min-height: 1000px) {
+@media screen and (min-width: 768px) and (orientation: landscape) {
+
+    .category-photography .post-list li {
+        width: auto;
+        height: 42vh;
+    }
+
+}
+
+@media screen and (min-height: 768px) and (orientation: landscape) {
     
     .category-photography .post-list li {
         height: 28vh;
