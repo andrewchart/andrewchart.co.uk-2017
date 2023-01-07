@@ -55,13 +55,13 @@
 	<body class="<?php echo accouk_body_class_list(); ?>">
 		<!-- Facebook Javascript SDK -->
 		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=176632145783407";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
+		<script 
+			async 
+			defer 
+			crossorigin="anonymous" 
+			src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v15.0&appId=176632145783407&autoLogAppEvents=1" 
+			nonce="TPlJ3vSB">
+		</script>
 		<!-- End Facebook Javascript SDK -->
 
 		<?php if(!is_front_page()): ?>
