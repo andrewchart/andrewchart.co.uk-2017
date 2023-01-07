@@ -58,7 +58,22 @@ body.category-photography,
     border: 1px solid #333;
 }
 
+/* Post Pages */
+.category-photography .page-hero-header {
+    max-height: none;
+}
 
+.category-photography .nohero-post-content .hero-image-container {
+    max-height: calc(100vh - 61px - 11em);
+}
+
+.category-photography .main-content.post-content .end-post-nav .tags a {
+    background-color: #333;
+    color: #ececec;
+}
+
+
+/* Breakpoints */
 @media screen and (min-width: 768px) and (orientation: landscape) {
 
     .category-photography .post-list li {

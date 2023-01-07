@@ -17,6 +17,10 @@
       <section class="excerpt"><?php accouk_post_excerpt(); ?></section>
     </div>
 
+    <div class="post-series-area">
+      <?php accouk_display_post_series(); ?>
+    </div>
+
   </section>
 
 
