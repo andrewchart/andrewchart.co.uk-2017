@@ -201,6 +201,41 @@ function accouk_is_photography_page() {
   return false;
 }
 
+/* 4) Photography gallery for post pages */
+function accouk_photo_gallery($atts) {
+
+  $thumbnails_html = "";
+
+  // Get image IDs
+  $args = array(
+    'post_type' => 'attachment',
+    'post_mime_type' => 'image',
+    'posts_per_page' => -1,
+    'post_parent' => get_the_ID(),
+    'order' => 'ASC',
+    'fields' => 'ids'
+  ); 
+
+  $attachment_ids = get_posts($args);
+
+  // Render the thumbnail gallery
+  foreach($attachment_ids as $attachment_id) {
+    $thumbnails_html .= "\n\t\t<li>\n\t\t\t";
+    $thumbnails_html .= wp_get_attachment_image($attachment_id, 'sixteennine_s', false);
+    $thumbnails_html .= "\n\t\t</li>";
+  }
+
+  // Output with template
+  ob_start();
+  include('templates/photo-gallery.php');
+  $element = ob_get_contents();
+  ob_end_clean();
+
+	return $element;
+}
+add_shortcode( 'photo_gallery', 'accouk_photo_gallery' );
+
+
 /* 5) YouTube Video Embed */
 function accouk_youtube_embed($atts) {
 
