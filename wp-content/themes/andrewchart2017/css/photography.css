@@ -100,6 +100,58 @@ body.category-photography,
     aspect-ratio: 1 / 1;
 }
 
+.category-photography .main-content.post-content aside {
+    background-color: rgba(0, 0, 0, 0.12);
+    color: #ddd;
+    padding: 0.2em 0.4em;
+    left: -0.3em;
+    font-size: 0.7em;
+}
+
+.photo-info {
+    position: relative;
+}
+
+.photo-info .photo-metadata {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.photo-info .photo-location {
+    width: 100%;
+    min-height: 200px;
+    background-color: #333;
+    margin: 6px 0 5px;
+}
+
+.main-content.post-content .photo-info .camera-details {
+    width: 100%;
+    max-width: 480px;
+}
+
+.main-content.post-content .photo-info th,
+.main-content.post-content .photo-info td {
+    border: 0;
+    padding: 0.2em 0.4em;
+    line-height: 180%;
+}
+
+.main-content.post-content .photo-info th {
+    font-weight: bold;
+}
+
+.category-photography .main-content.post-content aside.photo-info th {
+    background-color: transparent;
+}
+
+aside.photo-info small {
+    color: #444;
+    font-size: 0.8em;
+    position: absolute; 
+    right: 0.7em;
+    bottom: 0.5em;
+}
+
 .category-photography .main-content.post-content .end-post-nav .tags a {
     background-color: #333;
     color: #ececec;
@@ -107,6 +159,34 @@ body.category-photography,
 
 
 /* Breakpoints */
+@media screen and (min-width: 450px) {
+
+    .category-photography .main-content.post-content aside {
+        font-size: 0.8em;
+    }
+
+}
+
+@media screen and (min-width: 580px) {
+    .category-photography .main-content.post-content aside {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .photo-info .photo-location {
+        width: 39%;
+        margin-right: 3%;
+    }
+    
+    .main-content.post-content .photo-info .camera-details {
+        width: 58%;
+        max-width: none;
+    }
+
+}
+
 @media screen and (min-width: 768px) and (orientation: landscape) {
 
     .category-photography .post-list li {

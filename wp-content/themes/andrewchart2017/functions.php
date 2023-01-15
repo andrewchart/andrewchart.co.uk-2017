@@ -201,6 +201,85 @@ function accouk_is_photography_page() {
   return false;
 }
 
+/* 4) Photography info block for post pages */
+function accouk_photo_info($atts) {
+
+  $camera = null;
+  $lens = null;
+  $date_taken = null;
+  $focal_length = null;
+  $aperture = null;
+  $shutter_speed = null;
+  $iso = null;
+
+  // Read EXIF data
+  $exif = exif_read_data( wp_get_original_image_path( get_post_thumbnail_id() ) );
+
+  // Calculate properties from EXIF data
+  if(isset($exif['Make']) && isset($exif['Model'])) {
+    $camera = $exif['Make'] . " " . $exif['Model'];
+  }
+
+  if(isset($exif['UndefinedTag:0xA434'])) { 
+    $lens = $exif['UndefinedTag:0xA434'];
+  }
+
+  if(isset($exif['DateTimeOriginal'])) {
+    $exif_date_as_obj = date_create_from_format("Y:m:d H:i:s", $exif['DateTimeOriginal']);
+    $date_taken = date_format($exif_date_as_obj, "d/m/Y H:i");
+  }
+
+  if(isset($exif['FocalLength'])) {
+    $exp = explode("/", $exif['FocalLength']);
+    $focal_length  = $exp[0] / $exp[1];
+    $focal_length .= "mm";
+  }
+
+  if(isset($exif['COMPUTED']['ApertureFNumber'])) {
+    $aperture = $exif['COMPUTED']['ApertureFNumber'];
+  } else if(isset($exif['FNumber'])) {
+    $exp = explode("/", $exif['FNumber']);
+    $aperture  = "f/";
+    $aperture .= number_format($exp[0] / $exp[1], 1);
+  }
+
+  if(isset($exif['ExposureTime'])) {
+    $exp = explode("/", $exif['ExposureTime']);
+    $time  = $exp[0] / $exp[1];
+    if($time < 1) {
+      $shutter_speed = $exif['ExposureTime'] . " second";
+    } else if (time === 1) {
+      $shutter_speed = "1 second";
+    } else {
+      $shutter_speed = round($time, 2) . " seconds";
+    }
+  }
+
+  if(isset($exif['ISOSpeedRatings'])) {
+    $iso = $exif['ISOSpeedRatings'];
+  } 
+
+  // Override with user supplied
+  $img_meta = shortcode_atts(array(
+    'camera' => $camera,
+		'lens' => $lens,
+    'date_taken' => $date_taken,
+    'focal_length' => $focal_length,
+    'aperture' => $aperture,
+    'shutter_speed' => $shutter_speed,
+    'iso' => $iso
+	), $atts);
+
+  // Output with template
+  ob_start();
+  include('templates/photo-info.php');
+  $element = ob_get_contents();
+  ob_end_clean();
+
+	return $element;
+}
+add_shortcode( 'photo_info', 'accouk_photo_info' );
+
 /* 4) Photography gallery for post pages */
 function accouk_photo_gallery($atts) {
 
