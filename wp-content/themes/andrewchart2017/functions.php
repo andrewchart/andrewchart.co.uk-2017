@@ -270,6 +270,26 @@ function accouk_photo_info($atts) {
     'iso' => $iso
 	), $atts);
 
+
+  // Work out if a map could be shown.
+  $map_url = null;
+
+  if(isset($exif['GPSLatitude'])) {
+
+    include_once('svc/map-svcs.php');
+    $ms = new MapSvcs;
+
+    $lat_dms = $exif['GPSLatitude'];
+    $lat_ref = $exif['GPSLatitudeRef'];
+    $lng_dms = $exif['GPSLongitude'];
+    $lng_ref = $exif['GPSLongitudeRef'];
+
+    $lat_lng = $ms->exif_dms_to_decimal_degrees($lat_dms, $lat_ref, $lng_dms, $lng_ref);
+
+    $map_url = $ms->get_map_url(wp_upload_dir(), $lat_lng);
+
+  }
+
   // Output with template
   ob_start();
   include('templates/photo-info.php');

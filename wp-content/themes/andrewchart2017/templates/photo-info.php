@@ -3,6 +3,12 @@
     <h3 class="visually-hidden">Lead Photo: Metadata</h3>
 
     <div class="photo-metadata">
+
+        <?php if(isset($map_url)) : ?>
+        <section class="photo-location">
+            <img src="<?= $map_url; ?>" alt="A small map showing the location this photo was taken" />
+        </section>
+        <?php endif; ?>
         
         <section class="camera-details">
             <table>
