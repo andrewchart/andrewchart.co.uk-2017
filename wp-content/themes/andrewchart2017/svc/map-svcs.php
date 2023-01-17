@@ -45,11 +45,25 @@
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('x-ms-client-id: ' . $secrets['azure_maps_ms_client_id']));
 
             $out = curl_exec($ch);
+
+            if (!curl_errno($ch)) {
+                switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
+                    case 200:
+                        break;
+                    default:
+                        return false; // HTTP failed
+                }
+            } else {
+                return false; // cURL failed
+            }
+            
             curl_close($ch);
 
             $fp = fopen($map_path, 'w');
-            fwrite($fp, $out);
+            $result = fwrite($fp, $out);
             fclose($fp);
+
+            return $result; // false if write failed
 
         }
 
@@ -99,6 +113,10 @@
          * of the wp uploads folder and the [lat, lng] of the map.
          */
         public static function get_map_url($wp_upload_dir, $lat_lng) {
+            
+            if(empty($lat_lng[0]) || empty($lat_lng[1])) {
+                return null;
+            }
 
             $map_dir_path = $wp_upload_dir['basedir'] . "/map-tiles/";
             $map_dir_url  = $wp_upload_dir['baseurl'] . "/map-tiles/";
@@ -110,7 +128,9 @@
             $map_url  = $map_dir_url  . $map_filename;
 
             if(!file_exists($map_path)) {
-                self::create_map_img($map_path, $lat_lng);
+                if(self::create_map_img($map_path, $lat_lng) === false) {
+                    return null;
+                };
             }
 
             return $map_url;

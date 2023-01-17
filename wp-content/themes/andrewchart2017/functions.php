@@ -73,7 +73,7 @@ function accouk_body_class_list() {
 
   // Include category slug to style based on category
   if(is_single() && isset($GLOBALS['main_category'])) {
-    array_push($class_array, "category-" . $GLOBALS['main_category'][slug]);
+    array_push($class_array, "category-" . $GLOBALS['main_category']['slug']);
   } else if(is_category()) {
     array_push($class_array, "category-" . get_queried_object()->slug);
   }
@@ -193,7 +193,7 @@ function accouk_is_valid_text_file($path) {
 function accouk_is_photography_page() {
   if( is_category('photography') || 
       (isset($GLOBALS['main_category']) && 
-      $GLOBALS['main_category'][slug] === "photography")
+      $GLOBALS['main_category']['slug'] === "photography")
   ) {
     return true;
   }
@@ -248,7 +248,7 @@ function accouk_photo_info($atts) {
     $time  = $exp[0] / $exp[1];
     if($time < 1) {
       $shutter_speed = $exif['ExposureTime'] . " second";
-    } else if (time === 1) {
+    } else if ($time === 1) {
       $shutter_speed = "1 second";
     } else {
       $shutter_speed = round($time, 2) . " seconds";
@@ -267,17 +267,26 @@ function accouk_photo_info($atts) {
     'focal_length' => $focal_length,
     'aperture' => $aperture,
     'shutter_speed' => $shutter_speed,
-    'iso' => $iso
+    'iso' => $iso,
+    'lat' => $lat,
+    'lng' => $lng
 	), $atts);
 
 
   // Work out if a map could be shown.
   $map_url = null;
 
-  if(isset($exif['GPSLatitude'])) {
+  include_once('svc/map-svcs.php');
+  $ms = new MapSvcs;
 
-    include_once('svc/map-svcs.php');
-    $ms = new MapSvcs;
+  // Manual co-ordinates supplied
+  if(isset($img_meta['lat']) && isset($img_meta['lng'])) {
+    $lat_lng = array($img_meta['lat'], $img_meta['lng']);
+    $map_url = $ms->get_map_url(wp_upload_dir(), $lat_lng);
+  } 
+  
+  // Otherwise look at the EXIF data
+  else if(isset($exif['GPSLatitude'])) {
 
     $lat_dms = $exif['GPSLatitude'];
     $lat_ref = $exif['GPSLatitudeRef'];
