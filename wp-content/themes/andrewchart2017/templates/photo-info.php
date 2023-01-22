@@ -6,7 +6,11 @@
 
         <?php if(isset($map_url)) : ?>
         <section class="photo-location">
-            <img src="<?= $map_url; ?>" alt="A small map showing the location this photo was taken" />
+            <?php $lat_lng_string = "Latitude: " . round($lat_lng[0], 4) . ", Longitude: " . round($lat_lng[1],4 ) . "."; ?>
+            <img 
+                src="<?= $map_url; ?>" 
+                alt="A small map showing the location this photo was taken. <?= $lat_lng_string; ?>"
+                title="<?= $lat_lng_string; ?>" />
         </section>
         <?php endif; ?>
         
