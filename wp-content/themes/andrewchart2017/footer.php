@@ -8,6 +8,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="js/scripts.js"></script>
   <script src="js/prism.js"></script>
+  <?php if(accouk_is_photography_page() && is_single()) : ?>
+  <script src="js/photoswipe.umd.min.js"></script>
+  <script src="js/photoswipe-lightbox.umd.min.js"></script>
+  <script type="text/javascript">
+    var lightbox = new PhotoSwipeLightbox({
+      gallery: '.photo-gallery',
+      children: 'li',
+      pswpModule: PhotoSwipe 
+    });
+    lightbox.init();
+  </script>
+	<?php endif; ?>
   <?php wp_footer(); ?>
 </body>
 </html>

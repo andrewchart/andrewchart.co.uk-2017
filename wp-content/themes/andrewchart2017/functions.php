@@ -329,7 +329,11 @@ function accouk_photo_gallery($atts) {
   // Render the thumbnail gallery
   foreach($attachment_ids as $attachment_id) {
     $thumbnails_html .= "\n\t\t<li>\n\t\t\t";
+    $thumbnails_html .= "<a href=\"";
+    $thumbnails_html .= wp_get_attachment_image_url($attachment_id, 'uncropped_xl', false);
+    $thumbnails_html .= "\">\n\t\t\t\t";
     $thumbnails_html .= wp_get_attachment_image($attachment_id, 'sixteennine_s', false);
+    $thumbnails_html .= "\n\t\t\t</a>";
     $thumbnails_html .= "\n\t\t</li>";
   }
 

@@ -44,6 +44,10 @@
 		<link rel="stylesheet" href="css/photography.css" />
 		<?php endif; ?>
 
+		<?php if(accouk_is_photography_page() && is_single()) : ?>
+		<link rel="stylesheet" href="css/photoswipe.css" />
+		<?php endif; ?>
+		
 		<link rel="shortcut icon" href="img/f.png" type="image/x-icon" />
 
 		<?php wp_head(); ?>
