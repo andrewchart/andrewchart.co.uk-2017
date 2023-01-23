@@ -12,12 +12,7 @@
   <script src="js/photoswipe.umd.min.js"></script>
   <script src="js/photoswipe-lightbox.umd.min.js"></script>
   <script type="text/javascript">
-    var lightbox = new PhotoSwipeLightbox({
-      gallery: '.photo-gallery',
-      children: 'li',
-      pswpModule: PhotoSwipe 
-    });
-    lightbox.init();
+    initLightbox();
   </script>
 	<?php endif; ?>
   <?php wp_footer(); ?>

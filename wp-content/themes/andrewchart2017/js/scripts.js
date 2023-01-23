@@ -166,3 +166,39 @@ $(document).ready(function(){
   $('code').parents('pre').addClass('line-numbers')
 
 })();
+
+/* Create a Photoswipe lightbox */
+function initLightbox() {
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.photo-gallery',
+    children: 'li',
+    pswpModule: PhotoSwipe 
+  });
+
+  lightbox.on('uiRegister', function() {
+    lightbox.pswp.ui.registerElement({
+      name: 'custom-caption',
+      order: 9,
+      isButton: false,
+      appendTo: 'wrapper',
+      onInit: (el) => {
+        lightbox.pswp.on('change', () => {
+          const currSlideElement = lightbox.pswp.currSlide.data.element;
+          let captionHTML = '';
+          if (currSlideElement) {
+            captionHTML = currSlideElement.querySelector('a').getAttribute('data-caption');
+          }
+          el.innerHTML = captionHTML;
+        });
+      }
+    });
+  });
+
+  document.getElementById('open-photo-gallery').onclick = () => {
+    document.getElementById('pg-img-0').click();
+  }
+
+  return lightbox.init();  
+
+}

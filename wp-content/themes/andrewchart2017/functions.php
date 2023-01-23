@@ -313,6 +313,7 @@ add_shortcode( 'photo_info', 'accouk_photo_info' );
 function accouk_photo_gallery($atts) {
 
   $thumbnails_html = "";
+  $i = 0;
 
   // Get image IDs
   $args = array(
@@ -328,13 +329,22 @@ function accouk_photo_gallery($atts) {
 
   // Render the thumbnail gallery
   foreach($attachment_ids as $attachment_id) {
-    $thumbnails_html .= "\n\t\t<li>\n\t\t\t";
-    $thumbnails_html .= "<a href=\"";
-    $thumbnails_html .= wp_get_attachment_image_url($attachment_id, 'uncropped_xl', false);
-    $thumbnails_html .= "\">\n\t\t\t\t";
-    $thumbnails_html .= wp_get_attachment_image($attachment_id, 'sixteennine_s', false);
-    $thumbnails_html .= "\n\t\t\t</a>";
-    $thumbnails_html .= "\n\t\t</li>";
+
+    $img = wp_get_attachment_image_src($attachment_id, 'uncropped_xl', false);
+    $href = $img[0];
+    $id = "pg-img-" . $i;
+    $thumbnail_img = wp_get_attachment_image($attachment_id, 'uncropped_s', false);
+    $caption = wp_get_attachment_caption($attachment_id);
+    $full_img_w = $img[1];
+    $full_img_h = $img[2];
+
+    ob_start();
+    include('templates/photo-gallery-thumbnail.php');
+    $thumbnails_html .= ob_get_contents();
+    ob_end_clean();
+
+    $i++;
+
   }
 
   // Output with template
