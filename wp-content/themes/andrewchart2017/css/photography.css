@@ -27,6 +27,22 @@ body.category-photography,
     color: #555;
 }
 
+.pswp__custom-caption {
+    position: absolute;
+    left: 50%;
+    bottom: 2em;
+    transform: translateX(-50%);
+    width: calc(100% - 3.6em);
+    background-color: rgba(40, 40, 40, 0.85);
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+.pswp__custom-caption p {
+    padding: 0.8em 1.2em;
+    margin: 0;
+}
+
 /* Photgraphy category page */
 .category-photography .post-list {
     display: flex;
@@ -120,13 +136,12 @@ body.category-photography,
 .photo-info .photo-location {
     width: 100%;
     min-height: 200px;
-    background-color: #333;
-    margin: 6px 0 5px;
+    margin: 3px auto 5px;
 }
 
 .main-content.post-content .photo-info .camera-details {
     width: 100%;
-    max-width: 480px;
+    max-width: 418px;
 }
 
 .main-content.post-content .photo-info th,
@@ -165,26 +180,38 @@ aside.photo-info small {
         font-size: 0.8em;
     }
 
+    .photo-info .photo-location,
+    .main-content.post-content .photo-info .camera-details {
+        width: 418px;
+    }
+
+    .main-content.post-content .photo-info:has(.photo-location) .camera-details {
+        margin: 0 auto;
+    }
+
 }
 
 @media screen and (min-width: 580px) {
-    .category-photography .main-content.post-content aside {
-        font-size: 0.9em;
-    }
-}
-
-@media screen and (min-width: 768px) {
 
     .photo-info .photo-location {
         width: 39%;
         margin-right: 3%;
+        margin-top: 5px;
     }
-    
+
     .main-content.post-content .photo-info .camera-details {
         width: 58%;
         max-width: none;
     }
 
+}
+
+@media screen and (min-width: 728px) {
+
+    .category-photography .main-content.post-content aside {
+        font-size: 0.9em;
+    }
+ 
 }
 
 @media screen and (min-width: 768px) and (orientation: landscape) {

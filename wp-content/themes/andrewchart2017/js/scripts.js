@@ -189,14 +189,24 @@ function initLightbox() {
           if (currSlideElement) {
             captionHTML = currSlideElement.querySelector('a').getAttribute('data-caption');
           }
-          el.innerHTML = captionHTML;
+
+          if(captionHTML.length > 0) {
+            el.innerHTML = "<p>" + captionHTML + "</p>";    
+          } else {
+            el.innerHTML = '';
+          }
+        
         });
       }
     });
   });
 
-  document.getElementById('open-photo-gallery').onclick = () => {
-    document.getElementById('pg-img-0').click();
+  let openPhotoGalleryButton = document.getElementById('open-photo-gallery');
+
+  if(openPhotoGalleryButton) {
+    openPhotoGalleryButton.onclick = () => {
+      document.getElementById('pg-img-0').click();
+    }
   }
 
   return lightbox.init();  
