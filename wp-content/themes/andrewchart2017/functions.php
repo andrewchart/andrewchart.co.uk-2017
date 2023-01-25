@@ -330,13 +330,25 @@ function accouk_photo_gallery($atts) {
   // Render the thumbnail gallery
   foreach($attachment_ids as $attachment_id) {
 
-    $img = wp_get_attachment_image_src($attachment_id, 'uncropped_xl', false);
-    $href = $img[0];
+    $thumbnail = wp_get_attachment_image_src($attachment_id, 'uncropped_s', false);
+    $full_img  = wp_get_attachment_image_src($attachment_id, 'uncropped_xl', false);
+    $img_meta  = wp_get_attachment_metadata($attachment_id);
+
+    $thumbnail_src = $thumbnail[0];
+    $full_img_src = $full_img[0];
+    $full_img_w = $full_img[1];
+    $full_img_h = $full_img[2];
+
     $id = "pg-img-" . $i;
-    $thumbnail_img = wp_get_attachment_image($attachment_id, 'uncropped_s', false);
+    $alt = trim(strip_tags(get_post_meta($attachment_id, '_wp_attachment_image_alt', true)));
     $caption = wp_get_attachment_caption($attachment_id);
-    $full_img_w = $img[1];
-    $full_img_h = $img[2];
+
+    $srcset = "";
+
+    if(is_array($img_meta)) {
+      $size_array = array(absint($full_img_w), absint($full_img_h));
+      $srcset     = wp_calculate_image_srcset($size_array, $full_img_src, $img_meta, $attachment_id);
+    }
 
     ob_start();
     include('templates/photo-gallery-thumbnail.php');
