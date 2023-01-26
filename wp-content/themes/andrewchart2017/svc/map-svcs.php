@@ -1,17 +1,17 @@
 <?php
 
     /**
+     * 
      * map-svcs.php
      * 
      * Services to generate static images of a map
      * location based upon latitude and longitude.
      * 
-     * Map tiles are cached using their DMS (degrees
-     * minutes seconds notation with hyphens and underscores
-     * replacing symbols e.g:
-     * 
-     * 41°24'12.2"N 2°10'26.5"E => `41-24-12.2-N_2-10-26.5-E`
-     * )
+     * Map tiles are cached using their latitude 
+     * and longitude values in decimal degrees.
+     * These are based on a conversion from DMS 
+     * format, as they are commonly stored in the 
+     * EXIF standard.
      * 
      */
 
