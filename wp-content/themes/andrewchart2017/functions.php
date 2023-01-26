@@ -226,7 +226,9 @@ function accouk_photo_info($atts) {
 
   if(isset($exif['DateTimeOriginal'])) {
     $exif_date_as_obj = date_create_from_format("Y:m:d H:i:s", $exif['DateTimeOriginal']);
-    $date_taken = date_format($exif_date_as_obj, "d/m/Y H:i");
+    if($exif_date_as_obj) {
+      $date_taken = date_format($exif_date_as_obj, "d/m/Y H:i");
+    }
   }
 
   if(isset($exif['FocalLength'])) {
