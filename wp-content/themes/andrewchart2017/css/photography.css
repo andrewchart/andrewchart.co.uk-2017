@@ -174,6 +174,19 @@ aside.photo-info small {
     bottom: 0.5em;
 }
 
+.main-content.post-content footer.listening-to {
+    border-color: #444;
+}
+
+.main-content.post-content blockquote {
+    border-color: #444;
+    color: #ddd;
+}
+
+.main-content.post-content blockquote::before {
+    color: #444;
+}
+
 .category-photography .main-content.post-content .end-post-nav .tags a {
     background-color: #333;
     color: #ececec;
