@@ -72,6 +72,7 @@ body.category-photography,
 .category-photography .post-list li a .main-tile-part > img,
 .category-photography .gallery ul li img {
     height: 100%;
+    min-height: auto;
     min-width: 100%;
     width: auto;
     object-fit: cover;
@@ -85,6 +86,10 @@ body.category-photography,
 .category-photography .post-list li a:active .main-tile-part > span,
 .category-photography .post-list li a:focus .main-tile-part > span {
     display: block;
+}
+
+.category-photography .post-list li a .main-tile-part > span h3 {
+    font-size: 1.3em;
 }
 
 .category-photography .pagination a, .pagination span {
@@ -195,6 +200,10 @@ aside.photo-info small {
 
 @media screen and (min-width: 580px) {
 
+    .category-photography .post-list li a .main-tile-part > span h3 {
+        font-size: 1.5em;
+    }
+
     .photo-info .photo-location {
         width: 39%;
         margin-right: 3%;
@@ -209,6 +218,10 @@ aside.photo-info small {
 }
 
 @media screen and (min-width: 728px) {
+
+    .category-photography .post-list li a .main-tile-part > span h3 {
+        font-size: 1.8em;
+    }
 
     .category-photography .main-content.post-content aside {
         font-size: 0.9em;
