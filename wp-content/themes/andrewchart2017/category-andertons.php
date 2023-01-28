@@ -8,7 +8,9 @@
 
 <header class="page-hero-header">
 
-  <div class="hero-image-container"
+  <div class="hero-image-container" 
+    role="img" 
+    aria-label="<?php echo get_post_meta(413, '_wp_attachment_image_alt', true); ?>"
     data-hero-image-xl="<?php echo wp_get_attachment_image_src(413, 'uncropped_xl')[0]; ?>"
     data-hero-image-l="<?php echo wp_get_attachment_image_src(413, 'uncropped_l')[0]; ?>"
     data-hero-image-m="<?php echo wp_get_attachment_image_src(413, 'uncropped_m')[0]; ?>"

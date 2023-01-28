@@ -1,6 +1,8 @@
 <header class="page-hero-header">
 
-  <div class="hero-image-container"
+  <div class="hero-image-container" 
+    role="img" 
+    aria-label="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>"
     data-hero-image-xl="<?php the_post_thumbnail_url('uncropped_xl')?>"
     data-hero-image-l="<?php the_post_thumbnail_url('uncropped_l')?>"
     data-hero-image-m="<?php the_post_thumbnail_url('uncropped_m')?>"
