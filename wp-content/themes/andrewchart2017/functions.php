@@ -327,6 +327,15 @@ function accouk_photo_gallery($atts) {
     'fields' => 'ids'
   ); 
 
+  // Option to hide thumbnails and just have an open gallery button
+  $a = shortcode_atts(array(
+    'hide_thumbnails' => false
+	), $atts);
+
+  if($a['hide_thumbnails']) {
+    $hide_thumbnails = true;
+  }
+
   $attachment_ids = get_posts($args);
 
   // Render the thumbnail gallery

@@ -173,6 +173,12 @@ function initLightbox() {
   const lightbox = new PhotoSwipeLightbox({
     gallery: '.photo-gallery',
     children: 'li',
+    showHideAnimationType: (
+      // If thumbnails are visible, zoom the thumbnail into the full gallery. If not fade from nothing.
+      document.querySelector('#photo-gallery-thumbnails.visually-hidden') === null ?
+         'zoom' : 
+         'fade'
+    ),
     pswpModule: PhotoSwipe 
   });
 

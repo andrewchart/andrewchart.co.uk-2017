@@ -102,10 +102,6 @@ body.category-photography,
     max-height: none;
 }
 
-.category-photography .nohero-post-content .hero-image-container {
-    max-height: calc(100vh - 61px - 11em);
-}
-
 .category-photography .gallery ul {
     margin: 0;
     display: flex;
