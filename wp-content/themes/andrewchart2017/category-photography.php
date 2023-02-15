@@ -18,7 +18,8 @@
           <img 
             srcset="<?php the_post_thumbnail_url('uncropped_s'); ?> 768w, <?php the_post_thumbnail_url('uncropped_m'); ?> 2560w, <?php the_post_thumbnail_url('uncropped_l'); ?> 3840w"
             sizes="(max-width: 767px) 33vw, (min-width: 768px) 100vw"
-            src="<?php the_post_thumbnail_url('uncropped_s'); ?>" />
+            src="<?php the_post_thumbnail_url('uncropped_s'); ?>"
+            alt="<?= get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" />
           <span><h3><?php the_title(); ?></h3></span>
         </div>
       </a>
