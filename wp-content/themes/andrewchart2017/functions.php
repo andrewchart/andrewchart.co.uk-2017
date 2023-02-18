@@ -66,6 +66,42 @@ function accouk_set_global_main_cat() {
 
 }
 
+/* 3) Custom category ordering using a custom meta field */
+// Note: categories now MUST have an order assigned to show in the menu nav
+function accouk_custom_category_order_meta_field($tag) {
+   
+  $current_category_order = get_term_meta($tag->term_id, 'category_order', true);
+
+  ?>
+  <tr class="form-field">
+      <th valign="top" scope="row"><label for="term_fields[category_order]"><?php _e('Category order'); ?></label></th>
+      <td>
+          <input type="number" value="<?php echo esc_attr($current_category_order); ?>" id="term_fields[category_order]" name="term_fields[category_order]"><br/>
+          <p class="description"><?php _e('Enter a number to order the category in navigation menus. This must be present in order for a category to show in navigation.'); ?></p><br />
+      </td>
+  </tr>   
+
+  <?php
+}
+add_action('category_add_form_fields', 'accouk_custom_category_order_meta_field', 10, 2);
+add_action('category_edit_form_fields', 'accouk_custom_category_order_meta_field', 10, 2);
+
+function wp_save_category_fields($term_id) {
+  if (!isset($_POST['term_fields'])) {
+      return;
+  }
+
+  foreach ($_POST['term_fields'] as $key => $value) {
+      update_term_meta($term_id, $key, sanitize_text_field($value));
+  }
+}
+
+// Save the fields values, using our callback function
+// if you have other taxonomy name, replace category with the name of your taxonomy. ex: edited_book, create_book
+add_action('edited_category', 'wp_save_category_fields', 10, 2);
+add_action('create_category', 'wp_save_category_fields', 10, 2);
+
+
 /* 3) Form the <body> class list */
 function accouk_body_class_list() {
 
