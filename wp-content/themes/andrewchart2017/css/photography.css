@@ -67,6 +67,7 @@ body.category-photography,
 .category-photography .post-list li a,
 .category-photography .post-list li a .main-tile-part {
     height: 100%;
+    overflow: hidden;
 }
 
 .category-photography .post-list li a .main-tile-part > img,
