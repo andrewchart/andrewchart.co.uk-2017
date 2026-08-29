@@ -1,0 +1,96 @@
+#parkrunTracker {
+  margin: 1em 0;
+}
+
+#parkrunTracker > ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 4px;
+}
+
+@media screen and (min-width: 555px) {
+  #parkrunTracker > ol { gap: 6px; }
+}
+
+@media screen and (min-width: 768px) {
+  #parkrunTracker > ol { gap: 8px; }
+}
+
+#parkrunTracker > ol > li {
+  position: relative;
+  margin: 0;
+  padding: 0; 
+  background-color: #ececec;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+
+#parkrunTracker > ol > li.norun { background-color: #fa4f49; }
+#parkrunTracker > ol > li.run { background-color: #38cf6c; }
+
+#parkrunTracker > ol > li > .tooltip {
+  display: none;
+  position: absolute;
+  border-radius: 5px;
+  top: 100%;
+  margin-top: 5px;
+  padding: 5px;
+  z-index: 1;
+  width: 300%;
+  font-family: 'Oswald', 'Helvetica', 'Arial Black', 'Arial Bold', 'Arial', sans-serif;
+  font-size: 0.7em;
+  line-height: 120%;
+  text-align: center;
+  background-color: #f7b3a7;
+}
+
+#parkrunTracker > ol > li:hover > .tooltip { display: block; }
+
+#parkrunTracker > ol > li:hover > .tooltip::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 12.5%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #f7b3a7 transparent;
+}
+
+#parkrunTracker > ol > li:nth-child(11n) > .tooltip,
+#parkrunTracker > ol > li:nth-child(11n-1) > .tooltip,
+#parkrunTracker > ol > li:nth-child(11n-2) > .tooltip {
+  right: 0; 
+}
+
+#parkrunTracker > ol > li:nth-child(11n):hover > .tooltip::after,
+#parkrunTracker > ol > li:nth-child(11n-1):hover > .tooltip::after,
+#parkrunTracker > ol > li:nth-child(11n-2):hover > .tooltip::after {
+  left: 87.5%;
+}
+
+@media screen and (min-width: 555px) {
+  #parkrunTracker > ol > li > .tooltip { 
+    width: 200%;
+    font-size: 0.8em;
+  }
+  
+  #parkrunTracker > ol > li:hover > .tooltip::after { left: 25%; }
+  
+  #parkrunTracker > ol > li:nth-child(11n-1) > .tooltip,
+  #parkrunTracker > ol > li:nth-child(11n-2) > .tooltip {
+    left: 0; 
+  }
+  
+  #parkrunTracker > ol > li:nth-child(11n-1):hover > .tooltip::after,
+  #parkrunTracker > ol > li:nth-child(11n-2):hover > .tooltip::after {
+    left: 25%; 
+  }
+  
+  #parkrunTracker > ol > li:nth-child(11n):hover > .tooltip::after {
+    left: 75%; 
+  }
+}
