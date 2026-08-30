@@ -3,7 +3,6 @@
   // Fetch the external data
   let response = await fetch("https://my-parkrun-data-ffguczbcbhdvgvge.uksouth-01.azurewebsites.net/api/all");
   let myParkrunData = await response.json();
-  window.myParkrunData = myParkrunData;
 
   // Gather possible dates
   const FIRST_SATURDAY = new Date(2026, 8, 5);
