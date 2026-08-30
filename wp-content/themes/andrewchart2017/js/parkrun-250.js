@@ -1,7 +1,7 @@
 (async function () {
 
   // Fetch the external data
-  let response = await fetch("https://my-parkrun-data-ffguczbcbhdvgvge.uksouth-01.azurewebsites.net/api/all");
+  let response = await fetch("https://my-parkrun-data-ffguczbcbhdvgvge.uksouth-01.azurewebsites.net/api/parkruns");
   let myParkrunData = await response.json();
 
   // Gather possible dates
