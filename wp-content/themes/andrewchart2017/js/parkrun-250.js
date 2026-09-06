@@ -92,7 +92,9 @@
       trackerTable.append(el);
     });
     
-    document.getElementById('parkrunTracker').append(trackerTable);
+    let tracker = document.getElementById('parkrunTracker')
+    document.querySelector('#parkrunTracker .loader').style.display = 'none';
+    tracker.append(trackerTable);
   }
   
 })();
