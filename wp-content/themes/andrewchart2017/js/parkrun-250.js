@@ -67,8 +67,18 @@
       });
 
       if(match) {
+
+        let time = match.time;
+
+        if(typeof Temporal !== "undefined") {
+          let timeObj = Temporal.Duration.from(match.time);
+          let mins = timeObj.minutes;
+          let secs = timeObj.seconds;
+          time = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+      
         el.classList.add('run');
-        dt.innerText = `${match.event}, ${match.time}`;
+        dt.innerText = `${match.event}, ${time}`;
         tt.append(dt);
       }
 
