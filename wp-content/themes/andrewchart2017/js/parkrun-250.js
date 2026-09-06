@@ -5,10 +5,10 @@
   let myParkrunData = await response.json();
 
   // Gather possible dates
-  const FIRST_SATURDAY = new Date(2026, 8, 5);
-  const LAST_SATURDAY = new Date(2027, 8, 4);
-  const CHRISTMAS_DAY = new Date(2026, 11, 25);
-  const NEW_YEARS_DAY = new Date(2027, 0, 1);
+  const FIRST_SATURDAY = new Date(Date.UTC(2026, 8, 5));
+  const LAST_SATURDAY = new Date(Date.UTC(2027, 8, 4));
+  const CHRISTMAS_DAY = new Date(Date.UTC(2026, 11, 25));
+  const NEW_YEARS_DAY = new Date(Date.UTC(2027, 0, 1));
 
   let possibleParkrunDates = new Array(
     CHRISTMAS_DAY, 
@@ -30,10 +30,18 @@
     let d = startDate;
 
     while(d <= endDate) {
-      saturdays.push(new Date(d));
-      d.setDate(d.getDate()+7);
+
+      saturdays.push(new Date(
+        Date.UTC(
+          d.getUTCFullYear(), 
+          d.getUTCMonth(), 
+          d.getUTCDate()
+        )
+      ));
+
+      d.setUTCDate(d.getUTCDate()+7);
     }
-  
+
     return saturdays;
 
   }
