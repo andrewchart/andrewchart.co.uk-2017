@@ -54,16 +54,23 @@
     possibleParkrunDates.forEach((date) => {
       let el = document.createElement("li");
       let tt = document.createElement("span");
+      let dt = document.createElement("span");
 
       tt.classList.add('tooltip');
       tt.innerText = date.toDateString();
+
+      dt.classList.add('details');
 
       // Checks to see if this date exists within the completed parkrun dates array
       let match = myParkrunData.parkruns.find((parkrun) => {
         return date.getTime() === new Date(parkrun.run_date).getTime();
       });
 
-      if(match) el.classList.add('run');
+      if(match) {
+        el.classList.add('run');
+        dt.innerText = `${match.event}, ${match.time}`;
+        tt.append(dt);
+      }
 
       // If NOW is greater than 23:59:59 on the day of the possible parkrun, the run 
       // has definitely been missed
