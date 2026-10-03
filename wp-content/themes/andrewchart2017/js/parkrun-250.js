@@ -30,7 +30,7 @@
   }).value;
 
   document.getElementById('parkrunTracker').innerHTML += 
-    `<p class="totalRunCount>Total Parkruns: <span>${totalRunCount}</span></p>`;
+    `<p class="totalRunCount">Total Parkruns: <span>${totalRunCount}</span></p>`;
 
   
   // Works out normal Parkrun Saturdays
@@ -103,9 +103,9 @@
       trackerTable.append(el);
     });
     
-    let tracker = document.getElementById('parkrunTracker')
+    let tracker = document.getElementById('parkrunTracker');
     document.querySelector('#parkrunTracker .loader').style.display = 'none';
-    tracker.append(trackerTable);
+    tracker.prepend(trackerTable);
   }
   
 })();
