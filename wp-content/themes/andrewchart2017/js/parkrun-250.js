@@ -21,6 +21,17 @@
   // Render the tracker table
   renderTrackerTable(possibleParkrunDates, myParkrunData);
 
+  // Add the stats component
+  let response = await fetch("https://parkrun.data.andrewchart.co.uk/api/stats?keys=highest-id");
+  let myParkrunStats = await response.json();
+
+  let totalRunCount = myParkrunStats.stats.find((stat) => {
+    return stat.name === 'highest-id';
+  }).value;
+
+  document.getElementById('parkrunTracker').innerHTML += 
+    `<p class="totalRunCount>Total Parkruns: <span>${totalRunCount}</span></p>`;
+
   
   // Works out normal Parkrun Saturdays
   function getSaturdaysBetween(startDate, endDate) {

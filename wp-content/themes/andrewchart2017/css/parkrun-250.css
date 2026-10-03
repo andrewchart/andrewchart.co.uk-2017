@@ -80,6 +80,19 @@
   padding-top: 6px;
 }
 
+#parkrunTracker > .totalRunCount {
+  font-size: 0.9em;
+  font-family: 'Oswald';
+  margin-top: 0.6em;
+  text-align: center;
+  background-color: #ececec;
+  padding: 0.5em 0;
+}
+
+#parkrunTracker > .totalRunCount > span {
+  color: #ff2f00
+}
+
 @media screen and (min-width: 555px) {
   #parkrunTracker > ol > li > .tooltip { 
     width: 200%;
