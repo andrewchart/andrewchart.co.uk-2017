@@ -90,7 +90,7 @@
 }
 
 #parkrunTracker > .totalRunCount > span {
-  color: #ff2f00
+  color: #ff2f00;
 }
 
 @media screen and (min-width: 555px) {
