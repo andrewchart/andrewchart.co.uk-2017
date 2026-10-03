@@ -1,8 +1,8 @@
 (async function () {
 
   // Fetch the external data
-  let response = await fetch("https://parkrun.data.andrewchart.co.uk/api/parkruns?from=2026-09-05&to=2027-09-04");
-  let myParkrunData = await response.json();
+  let dataResponse = await fetch("https://parkrun.data.andrewchart.co.uk/api/parkruns?from=2026-09-05&to=2027-09-04");
+  let myParkrunData = await dataResponse.json();
 
   // Gather possible dates
   const FIRST_SATURDAY = new Date(Date.UTC(2026, 8, 5));
@@ -22,8 +22,8 @@
   renderTrackerTable(possibleParkrunDates, myParkrunData);
 
   // Add the stats component
-  let response = await fetch("https://parkrun.data.andrewchart.co.uk/api/stats?keys=highest-id");
-  let myParkrunStats = await response.json();
+  let statsResponse = await fetch("https://parkrun.data.andrewchart.co.uk/api/stats?keys=highest-id");
+  let myParkrunStats = await statsResponse.json();
 
   let totalRunCount = myParkrunStats.stats.find((stat) => {
     return stat.name === 'highest-id';
